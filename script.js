@@ -109,7 +109,6 @@
       ".price__lead",
       ".price__body",
       ".price__facts li",
-      ".price__photo",
       ".price-plan",
       ".trust-block",
       ".accordion__item",

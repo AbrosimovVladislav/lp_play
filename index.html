@@ -50,7 +50,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&amp;family=DM+Sans:wght@400;500;700&amp;display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css?v=20260604-blocks09" />
+    <link rel="stylesheet" href="styles.css?v=20260604-blocks10" />
   </head>
   <body>
     <a class="skip-link" href="#signup">К записи</a>
@@ -103,6 +103,35 @@
         <circle cx="17" cy="9" r="2.5"></circle>
         <path d="M3 20a5 5 0 0 1 10 0"></path>
         <path d="M14 19a4 4 0 0 1 7 0"></path>
+      </symbol>
+      <symbol id="icon-calendar-check" viewBox="0 0 24 24">
+        <rect x="3.5" y="5" width="17" height="15.5" rx="2.5"></rect>
+        <path d="M7.5 3.5v4"></path>
+        <path d="M16.5 3.5v4"></path>
+        <path d="M3.5 10h17"></path>
+        <path d="M8 15.4l2.2 2.1 5-5.1"></path>
+      </symbol>
+      <symbol id="icon-people" viewBox="0 0 24 24">
+        <circle cx="8.3" cy="8.2" r="2.8"></circle>
+        <circle cx="16.8" cy="9.3" r="2.4"></circle>
+        <path d="M3.4 19.5c.5-3.4 2.3-5.1 5-5.1s4.4 1.7 4.9 5.1"></path>
+        <path d="M13.8 18.8c.6-2.5 2-3.8 4-3.8 1.8 0 3 1.1 3.7 3.3"></path>
+      </symbol>
+      <symbol id="icon-cup" viewBox="0 0 24 24">
+        <path d="M6 8h9v5.2a4.4 4.4 0 0 1-4.4 4.4H10A4 4 0 0 1 6 13.6Z"></path>
+        <path d="M15 9.3h1.8a2.7 2.7 0 0 1 0 5.4H15"></path>
+        <path d="M7.5 20.5h8"></path>
+        <path d="M9 3.5v2"></path>
+        <path d="M12.5 3.5v2"></path>
+      </symbol>
+      <symbol id="icon-ball" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="8.5"></circle>
+        <path d="m12 7 3.6 2.6-1.4 4.2H9.8L8.4 9.6Z"></path>
+        <path d="m12 7 .2-3.5"></path>
+        <path d="m15.6 9.6 3.2-1.1"></path>
+        <path d="m14.2 13.8 2 2.8"></path>
+        <path d="m9.8 13.8-2 2.8"></path>
+        <path d="M8.4 9.6 5.2 8.5"></path>
       </symbol>
       <symbol id="icon-instagram" viewBox="0 0 24 24">
         <rect x="4" y="4" width="16" height="16" rx="5"></rect>
@@ -586,7 +615,7 @@
           <p class="level__copy">
             Группы формируются по уровню - поэтому играть интересно каждый раз.
           </p>
-          <p class="anti-promise" data-split="words">Если ты профи</p>
+          <p class="anti-promise" data-split="words">Если ты профи —</p>
           <p class="anti-promise anti-promise--accent">тебе не к нам!</p>
           <p class="level__copy level__copy--narrow">
             PlayUp — для тех, кто хочет начать или вернуться. 
@@ -612,45 +641,34 @@
 
             <ul class="price__facts" aria-label="Что входит в PlayUp">
               <li>
-                <svg aria-hidden="true"><use href="#icon-calendar"></use></svg>
+                <svg aria-hidden="true"><use href="#icon-calendar-check"></use></svg>
                 <span>
                   <strong>Просто начать</strong>
                   <small>Бронь за пару минут</small>
                 </span>
               </li>
               <li>
-                <svg aria-hidden="true"><use href="#icon-community"></use></svg>
+                <svg aria-hidden="true"><use href="#icon-people"></use></svg>
                 <span>
                   <strong>Живое сообщество</strong>
                   <small>Новые друзья и знакомства</small>
                 </span>
               </li>
               <li>
-                <svg aria-hidden="true"><use href="#icon-coffee"></use></svg>
+                <svg aria-hidden="true"><use href="#icon-cup"></use></svg>
                 <span>
                   <strong>Больше, чем футбол</strong>
                   <small>Кофе, общение, события</small>
                 </span>
               </li>
             </ul>
-
-            <figure class="price__photo" aria-hidden="true">
-              <img
-                src="assets/images/cafe.jpg"
-                alt=""
-                width="1672"
-                height="941"
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
           </div>
 
           <div class="price__cards" aria-label="Форматы участия">
             <article class="price-plan price-plan--active">
               <span class="price-plan__badge">РЕКОМЕНДУЕМ</span>
               <div class="price-plan__icon" aria-hidden="true">
-                <svg><use href="#icon-racket"></use></svg>
+                <svg><use href="#icon-ball"></use></svg>
               </div>
               <h3>
                 Первая игра<br />
@@ -673,7 +691,7 @@
             <article class="price-plan price-plan--muted" aria-label="Подписка скоро будет доступна">
               <span class="price-plan__soon">СКОРО</span>
               <div class="price-plan__icon" aria-hidden="true">
-                <svg><use href="#icon-community"></use></svg>
+                <svg><use href="#icon-people"></use></svg>
               </div>
               <h3>
                 Подписка —<br />
@@ -948,7 +966,7 @@
         </div>
       </div>
       <div class="footer-marquee">
-        СПОРТ - ЖИЗНЬ · БЕЗ ДАВЛЕНИЯ · ЖИВЫЕ ЛЮДИ · ХОРОШИЙ КОФЕ · НАЙДИ СВОИХ
+         СПОРТ - ЖИЗНЬ · БЕЗ ДАВЛЕНИЯ · ЖИВЫЕ ЛЮДИ · ХОРОШИЙ КОФЕ · НАЙДИ СВОИХ
       </div>
       <p class="copyright">
         © 2026 PlayUp · Белград · Политика конфиденциальности
