@@ -649,7 +649,7 @@ h3 {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 100%;
+  height: calc(100% + 2px);
   max-width: none;
   object-fit: cover;
   object-position: 66% center;
@@ -742,8 +742,9 @@ h3 {
 
 .marquee {
   position: relative;
-  /* Подтягиваем на 1px, чтобы зелёным перекрыть субпиксельную белую щель под hero. */
-  margin-top: -1px;
+  z-index: 1;
+  /* Подтягиваем вверх, чтобы зелёным перекрыть просвет body-фона (bone) под hero. */
+  margin-top: -2px;
   overflow: hidden;
   background: var(--green);
   color: var(--on-dark);
