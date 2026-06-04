@@ -314,29 +314,15 @@
       link.addEventListener("click", (event) => {
         const target = document.getElementById(id);
         if (!target) return;
-        // Пересчитываем позицию в момент клика (надёжнее нативного якоря,
-        // который мог «недокручивать» из-за смены раскладки во время скролла).
-        // scroll-margin-top на секциях держит цель под фиксированным хедером.
         event.preventDefault();
-        target.scrollIntoView({
-          behavior: reduceMotion ? "auto" : "smooth",
-          block: "start"
+        // Ручной расчёт: ставим верх блока ровно под фиксированный хедер.
+        // Один отступ, позиция считается в момент клика — без недо/перескролла.
+        const headerH = header ? header.offsetHeight : 0;
+        const top = target.getBoundingClientRect().top + window.scrollY - headerH;
+        window.scrollTo({
+          top: Math.max(0, top),
+          behavior: reduceMotion ? "auto" : "smooth"
         });
-
-        // На блоке записи на десктопе ставим фокус в поле (мобайл не дёргаем).
-        if (id !== "signup" || window.innerWidth < 920) return;
-        const field = document.getElementById("tg");
-        if (!field) return;
-        window.setTimeout(
-          () => {
-            try {
-              field.focus({ preventScroll: true });
-            } catch (error) {
-              field.focus();
-            }
-          },
-          reduceMotion ? 0 : 550
-        );
       });
     });
   }

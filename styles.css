@@ -364,7 +364,6 @@ button {
 .section {
   position: relative;
   padding: 96px 0;
-  scroll-margin-top: var(--header-height);
 }
 
 /* Меньше воздуха сверху у блока записи (~-15%) и «Как это устроено» (~-10%). */
