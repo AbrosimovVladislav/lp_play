@@ -586,7 +586,7 @@
           <p class="level__copy">
             Группы формируются по уровню - поэтому играть интересно каждый раз.
           </p>
-          <p class="anti-promise" data-split="words">Если ты профи —</p>
+          <p class="anti-promise" data-split="words">Если ты профи</p>
           <p class="anti-promise anti-promise--accent">тебе не к нам!</p>
           <p class="level__copy level__copy--narrow">
             PlayUp — для тех, кто хочет начать или вернуться. 
@@ -597,21 +597,101 @@
 
       <section class="section price" id="price" aria-labelledby="price-title">
         <div class="section__inner price__inner">
-          <p class="eyebrow">ЦЕНА</p>
-          <h2 id="price-title" class="price__free" data-split="words">
-            Первая игра — бесплатно.
-          </h2>
-          <p class="price__next">Дальше — 10 € за матч.</p>
-          <p class="price__body">
-            Без подписок. Без абонемента. Платишь за игру, на которую пришёл.
-          </p>
-          <p class="quiet-line">
-            Захочешь играть чаще — будут клубные форматы. Расскажем, когда
-            запустим.
-          </p>
-          <a class="button button--solid" href="#signup"
-            >Забронировать игру →</a
-          >
+          <div class="price__intro">
+            <p class="eyebrow">ФОРМАТЫ И ОПЛАТА</p>
+            <h2 id="price-title" class="price__title" data-split="words">
+              Играй<br />как удобно
+            </h2>
+            <p class="price__lead">
+              Выбирай формат, который подходит именно тебе.
+            </p>
+            <p class="price__body">
+              Приходи на разовую игру или переходи на подписку и получай
+              больше.
+            </p>
+
+            <ul class="price__facts" aria-label="Что входит в PlayUp">
+              <li>
+                <svg aria-hidden="true"><use href="#icon-calendar"></use></svg>
+                <span>
+                  <strong>Просто начать</strong>
+                  <small>Бронь за пару минут</small>
+                </span>
+              </li>
+              <li>
+                <svg aria-hidden="true"><use href="#icon-community"></use></svg>
+                <span>
+                  <strong>Живое сообщество</strong>
+                  <small>Новые друзья и знакомства</small>
+                </span>
+              </li>
+              <li>
+                <svg aria-hidden="true"><use href="#icon-coffee"></use></svg>
+                <span>
+                  <strong>Больше, чем футбол</strong>
+                  <small>Кофе, общение, события</small>
+                </span>
+              </li>
+            </ul>
+
+            <figure class="price__photo" aria-hidden="true">
+              <img
+                src="assets/images/cafe.jpg"
+                alt=""
+                width="1672"
+                height="941"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+
+          <div class="price__cards" aria-label="Форматы участия">
+            <article class="price-plan price-plan--active">
+              <span class="price-plan__badge">РЕКОМЕНДУЕМ</span>
+              <div class="price-plan__icon" aria-hidden="true">
+                <svg><use href="#icon-racket"></use></svg>
+              </div>
+              <h3>
+                Первая игра<br />
+                <span>бесплатно</span>
+              </h3>
+              <p class="price-plan__amount">Дальше — <strong>10 €</strong> за матч</p>
+              <p class="price-plan__copy">
+                Без подписки. Платишь только за игру, на которую пришёл.
+              </p>
+              <ul class="price-plan__list">
+                <li>Хост всё организует</li>
+                <li>После игры — знакомство и кофе</li>
+                <li>Подходит для первого раза</li>
+              </ul>
+              <a class="button button--solid price-plan__button" href="#signup">
+                Забронировать бесплатную игру →
+              </a>
+            </article>
+
+            <article class="price-plan price-plan--muted" aria-label="Подписка скоро будет доступна">
+              <span class="price-plan__soon">СКОРО</span>
+              <div class="price-plan__icon" aria-hidden="true">
+                <svg><use href="#icon-community"></use></svg>
+              </div>
+              <h3>
+                Подписка —<br />
+                100 € / месяц
+              </h3>
+              <p class="price-plan__copy">
+                2 игры в неделю, постоянная группа и клубные активности.
+              </p>
+              <ul class="price-plan__list">
+                <li>Воскресный бег</li>
+                <li>Йога и восстановление</li>
+                <li>Сообщество и события</li>
+              </ul>
+              <span class="price-plan__button price-plan__button--disabled">
+                Скоро будет доступно
+              </span>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -622,10 +702,10 @@
             <div class="trust-block">
               <p class="eyebrow">ОСНОВАТЕЛИ</p>
               <p class="trust-block__text">
-                Привет, мы Жан и Влад. Несколько лет назад переехали в Белград,
-                сами живём спортом — хоккей и не только. PlayUp делаем, чтобы
-                через спорт собрать в городе сильное комьюнити — и свою компанию
-                заодно.
+                Привет, мы Жан и Влад. 
+                Несколько лет назад переехали в Белград, и PlayUp вырос из того, что нам самим не хватало 
+                — регулярного спорта с людьми, с которыми хочется оставаться и после игры. 
+                Мы продумали всё, чтобы тебе было легко прийти, комфортно играть и интересно остаться.
               </p>
               <p class="trust-block__links">
                 <a
@@ -651,9 +731,8 @@
               </button>
               <div class="accordion__panel">
                 <p>
-                  Нет. PlayUp и придуман для тех, кто давно не играл или не
-                  играл вообще. При записи мы это учитываем — чтобы группа была
-                  на одном уровне и никто не чувствовал себя лишним.
+                  Нет - большинство наших игроков когда-то начинали с нуля. 
+                  При записи мы узнаем твой уровень и подберем комфортную группу.
                 </p>
               </div>
             </div>
@@ -664,8 +743,9 @@
               </button>
               <div class="accordion__panel" hidden>
                 <p>
-                  Так приходит большинство. В этом и смысл: заходишь один, а
-                  через час есть, с кем здороваться на следующей неделе.
+                  Так приходит большинство. 
+                  Команды формируются на месте, хост всех знакомит, а после игры вместе идем в кафе.
+                  Через пару недель на площадке уже одни знакомые лица.
                 </p>
               </div>
             </div>
@@ -676,8 +756,9 @@
               </button>
               <div class="accordion__panel" hidden>
                 <p>
-                  Первая игра — бесплатно. Приходишь и смотришь сам. Не зашло —
-                  ничего не должен, никто не уговаривает остаться.
+                  Первая игра — бесплатно. 
+                  Приходишь и смотришь сам. 
+                  Не зашло — ничего не должен, никто не уговаривает остаться.
                 </p>
               </div>
             </div>
@@ -688,10 +769,9 @@
               </button>
               <div class="accordion__panel" hidden>
                 <p>
-                  По уровню, возрасту и удобному времени. Сейчас выбираешь любые
+                  По уровню, и удобному времени. Сейчас выбираешь любые
                   удобные слоты — хоть несколько раз в неделю, и постепенно
-                  набирается своя компания. А с подпиской появится закреплённый
-                  состав: своя группа, те же дни и те же люди.
+                  набирается своя компания.
                 </p>
               </div>
             </div>
@@ -715,8 +795,7 @@
               <div class="accordion__panel" hidden>
                 <p>
                   Сейчас платишь за игру: первая бесплатно, дальше 10 €.
-                  Подписку с фиксированными слотами и активностями запустим,
-                  когда наберётся костяк. Расскажем заранее.
+                  Подписку с фиксированными слотами появится очень скоро - активно работаем над этим.
                 </p>
               </div>
             </div>
@@ -728,8 +807,8 @@
               <div class="accordion__panel" hidden>
                 <p>
                   На русском и английском. У нас играют сербы, релоканты из
-                  полутора десятков стран и местные. Перемешанный состав — часть
-                  смысла.
+                  полутора десятков стран и местные. 
+                  Перемешанный состав — часть смысла.
                 </p>
               </div>
             </div>
