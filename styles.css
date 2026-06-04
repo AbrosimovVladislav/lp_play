@@ -667,7 +667,7 @@ h3 {
 
 .hero {
   position: relative;
-  min-height: 96svh;
+  min-height: 92svh;
   overflow: hidden;
   /* Isolate paints so the always-zooming image can't dirty anything outside. */
   contain: paint;
