@@ -741,6 +741,9 @@ h3 {
 }
 
 .marquee {
+  position: relative;
+  /* Подтягиваем на 1px, чтобы зелёным перекрыть субпиксельную белую щель под hero. */
+  margin-top: -1px;
   overflow: hidden;
   background: var(--green);
   color: var(--on-dark);
@@ -769,7 +772,7 @@ h3 {
     radial-gradient(circle at 7% 78%, rgba(47, 74, 63, 0.08), transparent 24rem),
     linear-gradient(90deg, rgba(255, 255, 255, 0.7), transparent 52%),
     var(--bone);
-  padding-block: clamp(76px, 6.2vw, 104px);
+  padding-block: clamp(76px, 5.4vw, 92px);
 }
 
 .who__layout {
@@ -2144,8 +2147,8 @@ h3 {
 
 @media (min-width: 1280px) {
   .who__layout {
-    grid-template-columns: minmax(420px, 460px) minmax(0, 1fr);
-    gap: 52px;
+    grid-template-columns: minmax(360px, 400px) minmax(0, 1fr);
+    gap: 40px;
   }
 
   .who__intro {
@@ -2153,6 +2156,14 @@ h3 {
     top: calc(var(--header-height) + 34px);
     min-height: 640px;
     padding-top: 18px;
+  }
+
+  .who-card {
+    min-height: 352px;
+  }
+
+  .who-card:nth-child(-n + 3) {
+    min-height: 410px;
   }
 
   .who__intro h2 {
@@ -2210,11 +2221,11 @@ h3 {
   }
 
   .who {
-    padding-block: 138px;
+    padding-block: 100px;
   }
 
   .who__layout {
-    gap: 64px;
+    gap: 48px;
   }
 
   .who__intro {
@@ -2250,12 +2261,12 @@ h3 {
   }
 
   .who-card {
-    min-height: 340px;
+    min-height: 376px;
     padding: 30px;
   }
 
   .who-card:nth-child(-n + 3) {
-    min-height: 410px;
+    min-height: 452px;
   }
 
   .who-card h3 {
@@ -2456,6 +2467,12 @@ h3 {
 @media (max-width: 759px) {
   .section {
     padding: 78px 0;
+  }
+
+  /* На узком экране кадр сильно приближен — убираем +6% зум, чтобы было видно больше. */
+  .hero__image {
+    animation: none;
+    transform: none;
   }
 
   .arranged {
