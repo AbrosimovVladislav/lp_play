@@ -306,25 +306,25 @@
     });
   }
 
-  function initSignupFocus() {
-    const links = document.querySelectorAll('a[href="#signup"]');
-    if (!links.length) return;
+  function initAnchorScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      const id = link.getAttribute("href").slice(1);
+      if (!id) return;
 
-    links.forEach((link) => {
       link.addEventListener("click", (event) => {
-        // Якорь ведёт к верху блока, где доминирует крупный заголовок,
-        // а форма уходит вниз. Вместо этого центрируем саму форму в кадре:
-        // заголовок остаётся сверху как контекст, поле и кнопка — по центру.
-        const form = document.querySelector("#signup .signup-form");
-        if (!form) return;
+        const target = document.getElementById(id);
+        if (!target) return;
+        // Пересчитываем позицию в момент клика (надёжнее нативного якоря,
+        // который мог «недокручивать» из-за смены раскладки во время скролла).
+        // scroll-margin-top на секциях держит цель под фиксированным хедером.
         event.preventDefault();
-        form.scrollIntoView({
+        target.scrollIntoView({
           behavior: reduceMotion ? "auto" : "smooth",
-          block: "center"
+          block: "start"
         });
 
-        // На мобиле клавиатуру автоматически не дёргаем.
-        if (window.innerWidth < 920) return;
+        // На блоке записи на десктопе ставим фокус в поле (мобайл не дёргаем).
+        if (id !== "signup" || window.innerWidth < 920) return;
         const field = document.getElementById("tg");
         if (!field) return;
         window.setTimeout(
@@ -349,7 +349,7 @@
   initAccordion();
   initSportChoice();
   initForms();
-  initSignupFocus();
+  initAnchorScroll();
   updateHeaderNow();
 
   window.addEventListener("scroll", scheduleHeaderUpdate, { passive: true });

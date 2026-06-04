@@ -364,6 +364,16 @@ button {
 .section {
   position: relative;
   padding: 96px 0;
+  scroll-margin-top: var(--header-height);
+}
+
+/* Меньше воздуха сверху у блока записи (~-15%) и «Как это устроено» (~-10%). */
+.section.signup {
+  padding-top: 80px;
+}
+
+.section.steps {
+  padding-top: 86px;
 }
 
 .section__inner {
@@ -649,7 +659,7 @@ h3 {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: calc(100% + 2px);
+  height: 100%;
   max-width: none;
   object-fit: cover;
   object-position: 66% center;
@@ -743,8 +753,10 @@ h3 {
 .marquee {
   position: relative;
   z-index: 1;
-  /* Подтягиваем вверх, чтобы зелёным перекрыть просвет body-фона (bone) под hero. */
-  margin-top: -2px;
+  /* Подтягиваем вверх и добавляем верхний паддинг — зелёным перекрываем просвет
+     body-фона (bone) под hero без сдвига текста бегущей строки. */
+  margin-top: -4px;
+  padding-top: 4px;
   overflow: hidden;
   background: var(--green);
   color: var(--on-dark);
@@ -1225,6 +1237,11 @@ h3 {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
+}
+
+/* Жест по карусели тянет только вбок; вертикальный свайп уходит на скролл страницы. */
+.week .horizontal-viewport {
+  touch-action: pan-x;
 }
 
 .horizontal-viewport::-webkit-scrollbar {
@@ -2470,6 +2487,14 @@ h3 {
     padding: 78px 0;
   }
 
+  .section.signup {
+    padding-top: 66px;
+  }
+
+  .section.steps {
+    padding-top: 70px;
+  }
+
   /* На узком экране кадр сильно приближен — убираем +6% зум, чтобы было видно больше. */
   .hero__image {
     animation: none;
@@ -2500,28 +2525,29 @@ h3 {
   }
 
   .arranged__features {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    display: flex;
     width: 100%;
-    gap: 26px 24px;
-    margin-top: 32px;
+    gap: 10px;
+    margin-top: 28px;
   }
 
   .arranged__features li {
+    flex: 1;
     min-width: 0;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+    font-size: 0.78rem;
   }
 
-  .arranged__features li:nth-child(3) {
-    grid-column: 1 / -1;
+  .arranged__features svg {
+    width: 26px;
+    height: 26px;
   }
 
   .arranged__cta {
     width: 100%;
     margin-top: 34px;
-  }
-
-  .arranged__arrow {
-    display: none;
   }
 
   .arranged__media {
@@ -2543,16 +2569,27 @@ h3 {
   }
 
   .arranged__steps {
-    display: grid;
-    gap: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
     margin: 24px auto 0;
     background: rgba(13, 28, 22, 0.82);
-    padding: 28px 22px;
+    padding: 24px 22px;
   }
 
   .arranged__step {
-    flex-basis: 100%;
-    align-items: center;
+    flex-basis: auto;
+    width: 100%;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .arranged__arrow {
+    display: block;
+    align-self: flex-start;
+    margin: 8px 0 8px 22px;
+    transform: rotate(90deg);
+    color: var(--on-dark-dim);
   }
 
   .menu-toggle {
