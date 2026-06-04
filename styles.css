@@ -1587,7 +1587,7 @@ h3 {
   display: grid;
   width: min(100% - (var(--page-pad) * 2), 1500px);
   gap: clamp(34px, 3.4vw, 58px);
-  align-items: start;
+  align-items: stretch;
 }
 
 .price__inner::after {
@@ -2468,7 +2468,7 @@ h3 {
 
   .price__cards {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    align-items: start;
+    align-items: stretch;
   }
 
   .price-plan {
