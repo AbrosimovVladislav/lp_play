@@ -2592,6 +2592,34 @@ h3 {
   }
 }
 
+@media (min-width: 1280px) {
+  /* Интро + две карты тарифов в один ряд (раньше включалось только с 1500px). */
+  .price__inner {
+    grid-template-columns:
+      minmax(360px, 0.92fr)
+      minmax(300px, 1fr)
+      minmax(300px, 1fr);
+    gap: clamp(24px, 2.2vw, 40px);
+  }
+
+  .price__intro {
+    max-width: none;
+    min-height: 600px;
+  }
+
+  .price__title {
+    font-size: clamp(3.9rem, 4.5vw, 5.6rem);
+  }
+
+  .price__cards {
+    display: contents;
+  }
+
+  .price-plan {
+    min-height: 600px;
+  }
+}
+
 @media (min-width: 1500px) {
   .section {
     padding: 148px 0;
