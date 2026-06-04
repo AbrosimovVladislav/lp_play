@@ -242,12 +242,35 @@
     });
   }
 
-  function isValidTelegram(value) {
+  // Возвращает ник в каноничном виде "@handle" (как требует RLS-политика Supabase)
+  // или null, если значение невалидно.
+  function normalizeTelegram(value) {
     const handle = value
       .trim()
       .replace(/^https?:\/\/t\.me\//i, "")
       .replace(/^@/, "");
-    return /^[a-zA-Z0-9_]{5,32}$/.test(handle);
+    return /^[a-zA-Z0-9_]{5,32}$/.test(handle) ? "@" + handle : null;
+  }
+
+  function submitSignup(payload) {
+    const config = window.PLAYUP_CONFIG;
+    if (!config || !config.supabaseUrl || !config.supabaseKey) {
+      return Promise.reject(new Error("config-missing"));
+    }
+    return fetch(config.supabaseUrl + "/rest/v1/signups", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: config.supabaseKey,
+        Authorization: "Bearer " + config.supabaseKey,
+        Prefer: "return=minimal"
+      },
+      body: JSON.stringify(payload)
+    }).then((response) => {
+      if (!response.ok) {
+        throw new Error("http-" + response.status);
+      }
+    });
   }
 
   function initForms() {
@@ -256,9 +279,10 @@
         event.preventDefault();
         const field = form.querySelector('input[name="tg"]');
         const status = form.querySelector("[data-form-status]");
-        const value = field ? field.value.trim() : "";
+        const button = form.querySelector('button[type="submit"]');
+        const telegram = normalizeTelegram(field ? field.value : "");
 
-        if (!isValidTelegram(value)) {
+        if (!telegram) {
           if (status) status.textContent = "Впиши ник в Telegram — например, @ivan_play.";
           if (field) {
             field.setAttribute("aria-invalid", "true");
@@ -268,8 +292,53 @@
         }
 
         if (field) field.setAttribute("aria-invalid", "false");
-        form.innerHTML =
-          '<p class="form-status form-status--success">Готово! Напишем тебе в Telegram в течение суток — пара вопросов про уровень и удобное время, и закинем в группу к своим.</p>';
+        if (button) button.disabled = true;
+        if (status) status.textContent = "Отправляем…";
+
+        const payload = {
+          telegram: telegram,
+          source: form.dataset.source || "signup",
+          sport: form.hasAttribute("data-with-sport") ? selectedSport : null,
+          user_agent: (navigator.userAgent || "").slice(0, 400)
+        };
+
+        submitSignup(payload)
+          .then(() => {
+            form.innerHTML =
+              '<p class="form-status form-status--success">Готово! Напишем тебе в Telegram в течение суток — пара вопросов про уровень и удобное время, и закинем в группу к своим.</p>';
+          })
+          .catch(() => {
+            if (button) button.disabled = false;
+            if (status) {
+              status.textContent =
+                "Не получилось отправить. Проверь соединение и попробуй ещё раз — или напиши нам в Telegram.";
+            }
+          });
+      });
+    });
+  }
+
+  function initSignupFocus() {
+    const links = document.querySelectorAll('a[href="#signup"]');
+    if (!links.length) return;
+
+    links.forEach((link) => {
+      link.addEventListener("click", () => {
+        // На мобиле не дёргаем клавиатуру автоматически — просто скроллим к форме.
+        if (window.innerWidth < 920) return;
+        const field = document.getElementById("tg");
+        if (!field) return;
+        // preventScroll, чтобы не перебивать плавный скролл к началу блока.
+        window.setTimeout(
+          () => {
+            try {
+              field.focus({ preventScroll: true });
+            } catch (error) {
+              field.focus();
+            }
+          },
+          reduceMotion ? 0 : 550
+        );
       });
     });
   }
@@ -282,6 +351,7 @@
   initAccordion();
   initSportChoice();
   initForms();
+  initSignupFocus();
   updateHeaderNow();
 
   window.addEventListener("scroll", scheduleHeaderUpdate, { passive: true });
