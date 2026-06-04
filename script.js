@@ -3,8 +3,6 @@
   const header = document.querySelector("[data-header]");
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const mobileMenu = document.querySelector("[data-mobile-menu]");
-  const mobileCta = document.querySelector("[data-mobile-cta]");
-  const stickyCtaSuppressors = Array.from(document.querySelectorAll(".arranged, #signup"));
   let selectedSport = "Падел";
   let headerTicking = false;
 
@@ -151,16 +149,6 @@
     if (!header) return;
     const scrolled = window.scrollY > 100;
     header.classList.toggle("is-scrolled", scrolled);
-    if (mobileCta) {
-      const overlapsLocalCta = stickyCtaSuppressors.some((section) => {
-        const rect = section.getBoundingClientRect();
-        return rect.top < window.innerHeight * 0.88 && rect.bottom > header.offsetHeight + 32;
-      });
-      mobileCta.classList.toggle(
-        "is-visible",
-        window.innerWidth < 920 && window.scrollY > window.innerHeight * 0.82 && !overlapsLocalCta
-      );
-    }
   }
 
   function scheduleHeaderUpdate() {
@@ -323,12 +311,22 @@
     if (!links.length) return;
 
     links.forEach((link) => {
-      link.addEventListener("click", () => {
-        // На мобиле не дёргаем клавиатуру автоматически — просто скроллим к форме.
+      link.addEventListener("click", (event) => {
+        // Якорь ведёт к верху блока, где доминирует крупный заголовок,
+        // а форма уходит вниз. Вместо этого центрируем саму форму в кадре:
+        // заголовок остаётся сверху как контекст, поле и кнопка — по центру.
+        const form = document.querySelector("#signup .signup-form");
+        if (!form) return;
+        event.preventDefault();
+        form.scrollIntoView({
+          behavior: reduceMotion ? "auto" : "smooth",
+          block: "center"
+        });
+
+        // На мобиле клавиатуру автоматически не дёргаем.
         if (window.innerWidth < 920) return;
         const field = document.getElementById("tg");
         if (!field) return;
-        // preventScroll, чтобы не перебивать плавный скролл к началу блока.
         window.setTimeout(
           () => {
             try {
