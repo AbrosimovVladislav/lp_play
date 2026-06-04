@@ -306,6 +306,29 @@
     });
   }
 
+  function scrollToTarget(target) {
+    const headerH = header ? header.offsetHeight : 0;
+    const top = target.getBoundingClientRect().top + window.scrollY - headerH;
+    window.scrollTo({
+      top: Math.max(0, top),
+      behavior: reduceMotion ? "auto" : "smooth"
+    });
+
+    // Самокоррекция: раскладка может «доехать» уже после клика (догрузка
+    // шрифтов/контента) — первый расчёт тогда промахивается. После завершения
+    // скролла проверяем, стоит ли верх блока под хедером, и доправляем.
+    window.setTimeout(() => {
+      const drift = target.getBoundingClientRect().top - headerH;
+      if (Math.abs(drift) > 4) {
+        const fixed = target.getBoundingClientRect().top + window.scrollY - headerH;
+        window.scrollTo({
+          top: Math.max(0, fixed),
+          behavior: reduceMotion ? "auto" : "smooth"
+        });
+      }
+    }, reduceMotion ? 60 : 640);
+  }
+
   function initAnchorScroll() {
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
       const id = link.getAttribute("href").slice(1);
@@ -315,14 +338,7 @@
         const target = document.getElementById(id);
         if (!target) return;
         event.preventDefault();
-        // Ручной расчёт: ставим верх блока ровно под фиксированный хедер.
-        // Один отступ, позиция считается в момент клика — без недо/перескролла.
-        const headerH = header ? header.offsetHeight : 0;
-        const top = target.getBoundingClientRect().top + window.scrollY - headerH;
-        window.scrollTo({
-          top: Math.max(0, top),
-          behavior: reduceMotion ? "auto" : "smooth"
-        });
+        scrollToTarget(target);
       });
     });
   }
