@@ -99,7 +99,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  overflow-x: hidden;
+  overflow-x: clip;
   background:
     linear-gradient(
       90deg,
@@ -176,9 +176,13 @@ button {
 }
 
 .site-header {
-  position: fixed;
-  inset: 0 0 auto;
+  /* sticky вместо fixed: в in-app браузерах (Telegram, Instagram) fixed
+     отрывается с зазором при сжатии адресной строки. Отрицательный
+     margin-bottom убирает хедер из потока — overlay-вид поверх hero сохраняется. */
+  position: sticky;
+  top: 0;
   z-index: 100;
+  margin-bottom: calc(-1 * var(--header-height));
   display: flex;
   align-items: center;
   justify-content: flex-start;
