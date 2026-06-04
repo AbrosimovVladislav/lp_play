@@ -21,7 +21,10 @@
   --radius-tile: 8px;
   --radius-control: 4px;
   --container: 1280px;
-  --noise: linear-gradient(rgba(255, 255, 255, 0.025), rgba(255, 255, 255, 0.025));
+  --noise: linear-gradient(
+    rgba(255, 255, 255, 0.025),
+    rgba(255, 255, 255, 0.025)
+  );
 }
 
 @media (min-width: 760px) {
@@ -98,7 +101,12 @@ body {
   min-width: 320px;
   overflow-x: hidden;
   background:
-    linear-gradient(90deg, rgba(47, 74, 63, 0.03), transparent 34%, rgba(201, 122, 93, 0.035) 100%),
+    linear-gradient(
+      90deg,
+      rgba(47, 74, 63, 0.03),
+      transparent 34%,
+      rgba(201, 122, 93, 0.035) 100%
+    ),
     var(--bone);
   color: var(--text);
   font-family: var(--font-text);
@@ -179,7 +187,9 @@ button {
   padding: 0 var(--page-pad);
   background: color-mix(in srgb, var(--green) 94%, transparent);
   color: var(--on-dark);
-  transition: box-shadow 220ms ease, background 220ms ease;
+  transition:
+    box-shadow 220ms ease,
+    background 220ms ease;
 }
 
 .site-header.is-scrolled {
@@ -225,9 +235,11 @@ button {
 .desktop-nav a,
 .site-footer a,
 .trust-block__links a {
-  background:
-    linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat;
-  transition: color 180ms ease, background-size 220ms ease;
+  background: linear-gradient(currentColor, currentColor) left bottom / 0 1px
+    no-repeat;
+  transition:
+    color 180ms ease,
+    background-size 220ms ease;
 }
 
 .desktop-nav a:hover,
@@ -245,7 +257,10 @@ button {
   padding: 11px 17px;
   color: var(--on-dark);
   font-weight: 700;
-  transition: transform 120ms ease, background 180ms ease, color 180ms ease;
+  transition:
+    transform 120ms ease,
+    background 180ms ease,
+    color 180ms ease;
 }
 
 .header-cta:hover {
@@ -496,7 +511,11 @@ h3 {
   line-height: 1.1;
   text-align: center;
   white-space: nowrap;
-  transition: transform 120ms ease, background 180ms ease, color 180ms ease, border-color 180ms ease;
+  transition:
+    transform 120ms ease,
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
 }
 
 .button--solid {
@@ -529,9 +548,11 @@ h3 {
 .text-link {
   color: var(--green);
   font-weight: 700;
-  background:
-    linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat;
-  transition: background-size 220ms ease, color 180ms ease;
+  background: linear-gradient(currentColor, currentColor) left bottom / 0 1px
+    no-repeat;
+  transition:
+    background-size 220ms ease,
+    color 180ms ease;
 }
 
 .text-link:hover {
@@ -646,7 +667,7 @@ h3 {
 
 .hero {
   position: relative;
-  min-height: 90svh;
+  min-height: 96svh;
   overflow: hidden;
   /* Isolate paints so the always-zooming image can't dirty anything outside. */
   contain: paint;
@@ -781,7 +802,11 @@ h3 {
 .who {
   overflow: hidden;
   background:
-    radial-gradient(circle at 7% 78%, rgba(47, 74, 63, 0.08), transparent 24rem),
+    radial-gradient(
+      circle at 7% 78%,
+      rgba(47, 74, 63, 0.08),
+      transparent 24rem
+    ),
     linear-gradient(90deg, rgba(255, 255, 255, 0.7), transparent 52%),
     var(--bone);
   padding-block: clamp(76px, 5.4vw, 92px);
@@ -853,7 +878,13 @@ h3 {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(90deg, rgba(247, 246, 242, 0.96) 0%, rgba(247, 246, 242, 0.86) 42%, rgba(247, 246, 242, 0.28) 74%, rgba(247, 246, 242, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(247, 246, 242, 0.96) 0%,
+    rgba(247, 246, 242, 0.86) 42%,
+    rgba(247, 246, 242, 0.28) 74%,
+    rgba(247, 246, 242, 0) 100%
+  );
 }
 
 .who-card::after {
@@ -862,7 +893,12 @@ h3 {
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(115deg, transparent 0 36%, rgba(255, 255, 255, 0.24) 48%, transparent 62%);
+  background: linear-gradient(
+    115deg,
+    transparent 0 36%,
+    rgba(255, 255, 255, 0.24) 48%,
+    transparent 62%
+  );
   transform: translateX(-120%);
   transition: transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -878,7 +914,13 @@ h3 {
 }
 
 .who-card:hover::before {
-  background: linear-gradient(90deg, rgba(201, 122, 93, 0.95) 0%, rgba(201, 122, 93, 0.9) 44%, rgba(201, 122, 93, 0.78) 74%, rgba(201, 122, 93, 0.64) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(201, 122, 93, 0.95) 0%,
+    rgba(201, 122, 93, 0.9) 44%,
+    rgba(201, 122, 93, 0.78) 74%,
+    rgba(201, 122, 93, 0.64) 100%
+  );
 }
 
 .who-card:hover .who-card__number {
@@ -910,7 +952,9 @@ h3 {
   object-position: center;
   opacity: 0.96;
   transform: scale(1.01);
-  transition: transform 520ms cubic-bezier(0.22, 1, 0.36, 1), opacity 220ms ease;
+  transition:
+    transform 520ms cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 220ms ease;
 }
 
 .who-card:hover .who-card__image {
@@ -924,7 +968,10 @@ h3 {
 .who-card__tag {
   position: relative;
   z-index: 2;
-  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease;
 }
 
 .who-card__number {
@@ -1005,7 +1052,12 @@ h3 {
   position: absolute;
   inset: -40% 44% -40% auto;
   width: 190px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
   transform: rotate(18deg) translateX(-90px);
   transition: transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
 }
@@ -1062,8 +1114,14 @@ h3 {
 
 .arranged {
   --arranged-max: var(--container);
-  --arranged-gutter: max(var(--page-pad), calc((100vw - var(--arranged-max)) / 2));
-  --arranged-width: min(calc(100vw - (var(--page-pad) * 2)), var(--arranged-max));
+  --arranged-gutter: max(
+    var(--page-pad),
+    calc((100vw - var(--arranged-max)) / 2)
+  );
+  --arranged-width: min(
+    calc(100vw - (var(--page-pad) * 2)),
+    var(--arranged-max)
+  );
   isolation: isolate;
   padding: 0;
   background: var(--green-deep);
@@ -1282,7 +1340,12 @@ h3 {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.22) 40%, rgba(0, 0, 0, 0.74) 100%),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.08),
+      rgba(0, 0, 0, 0.22) 40%,
+      rgba(0, 0, 0, 0.74) 100%
+    ),
     linear-gradient(90deg, rgba(0, 0, 0, 0.26), transparent 58%);
 }
 
@@ -1362,7 +1425,12 @@ h3 {
   inset: 0;
   z-index: 1 !important;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.38) 58%, rgba(0, 0, 0, 0.22)),
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.78),
+      rgba(0, 0, 0, 0.38) 58%,
+      rgba(0, 0, 0, 0.22)
+    ),
     linear-gradient(0deg, rgba(0, 0, 0, 0.54), transparent 66%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.32), transparent 34%);
 }
@@ -1465,11 +1533,12 @@ h3 {
   line-height: 0.92;
 }
 
-.anti-promise .split-word:nth-child(4) {
+.anti-promise.anti-promise--accent {
+  margin-top: 4px;
   text-decoration: underline;
   text-decoration-color: var(--clay);
-  text-decoration-thickness: 0.06em;
-  text-underline-offset: 0.12em;
+  text-decoration-thickness: 0.05em;
+  text-underline-offset: 0.1em;
 }
 
 .level__copy--narrow {
@@ -1636,7 +1705,10 @@ h3 {
   color: var(--on-dark);
   padding: 0 18px;
   font-weight: 700;
-  transition: transform 120ms ease, background 180ms ease, border-color 180ms ease;
+  transition:
+    transform 120ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
 }
 
 .sport-choice__chip.is-active {
@@ -2037,7 +2109,11 @@ h3 {
   .arranged__top {
     grid-template-columns: 1.05fr 1fr;
     align-items: stretch;
-    min-height: clamp(580px, calc(100svh - var(--header-height) - 170px), 700px);
+    min-height: clamp(
+      580px,
+      calc(100svh - var(--header-height) - 170px),
+      700px
+    );
   }
 
   .arranged.dark-section > .arranged__top {
@@ -2055,7 +2131,13 @@ h3 {
 
   .arranged__media::after {
     background:
-      linear-gradient(90deg, var(--green-deep), rgba(35, 58, 48, 0.86) 20%, rgba(35, 58, 48, 0.26) 48%, transparent 76%),
+      linear-gradient(
+        90deg,
+        var(--green-deep),
+        rgba(35, 58, 48, 0.86) 20%,
+        rgba(35, 58, 48, 0.26) 48%,
+        transparent 76%
+      ),
       linear-gradient(0deg, rgba(35, 58, 48, 0.22), transparent 36%);
   }
 
@@ -2064,7 +2146,8 @@ h3 {
   }
 
   .arranged__content {
-    padding: clamp(52px, 6vh, 72px) 56px clamp(48px, 5vh, 64px) var(--arranged-gutter);
+    padding: clamp(52px, 6vh, 72px) 56px clamp(48px, 5vh, 64px)
+      var(--arranged-gutter);
   }
 
   .arranged__steps {
@@ -2313,7 +2396,11 @@ h3 {
   }
 
   .arranged__top {
-    min-height: clamp(650px, calc(100svh - var(--header-height) - 120px), 820px);
+    min-height: clamp(
+      650px,
+      calc(100svh - var(--header-height) - 120px),
+      820px
+    );
   }
 
   .arranged__media {
@@ -2453,7 +2540,11 @@ h3 {
   }
 
   .arranged__top {
-    min-height: clamp(720px, calc(100svh - var(--header-height) - 110px), 900px);
+    min-height: clamp(
+      720px,
+      calc(100svh - var(--header-height) - 110px),
+      900px
+    );
   }
 
   .arranged__content {
@@ -2501,7 +2592,7 @@ h3 {
   }
 
   .arranged {
-    padding-bottom: 54px;
+    padding-bottom: 72px;
   }
 
   .arranged.dark-section > .arranged__top {
@@ -2559,8 +2650,19 @@ h3 {
 
   .arranged__media::after {
     background:
-      linear-gradient(90deg, rgba(13, 28, 22, 0.84), rgba(13, 28, 22, 0.5) 58%, rgba(13, 28, 22, 0.32)),
-      linear-gradient(180deg, rgba(13, 28, 22, 0.5), rgba(13, 28, 22, 0.22) 24%, rgba(13, 28, 22, 0.28) 70%, rgba(13, 28, 22, 0.52));
+      linear-gradient(
+        90deg,
+        rgba(13, 28, 22, 0.84),
+        rgba(13, 28, 22, 0.5) 58%,
+        rgba(13, 28, 22, 0.32)
+      ),
+      linear-gradient(
+        180deg,
+        rgba(13, 28, 22, 0.5),
+        rgba(13, 28, 22, 0.22) 24%,
+        rgba(13, 28, 22, 0.28) 70%,
+        rgba(13, 28, 22, 0.52)
+      );
   }
 
   .arranged__media img {
@@ -2573,7 +2675,7 @@ h3 {
     gap: 0;
     margin: 24px auto 0;
     background: rgba(13, 28, 22, 0.82);
-    padding: 24px 22px;
+    padding: 26px 22px 30px;
   }
 
   .arranged__step {
@@ -2603,7 +2705,12 @@ h3 {
   .hero__shade {
     background:
       linear-gradient(0deg, rgba(0, 0, 0, 0.64), transparent 62%),
-      linear-gradient(90deg, rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.3) 72%, rgba(0, 0, 0, 0.2));
+      linear-gradient(
+        90deg,
+        rgba(0, 0, 0, 0.62),
+        rgba(0, 0, 0, 0.3) 72%,
+        rgba(0, 0, 0, 0.2)
+      );
   }
 
   .hero__lead {
@@ -2729,7 +2836,7 @@ h3 {
   }
 
   .arranged {
-    padding-bottom: 46px;
+    padding-bottom: 60px;
   }
 
   .arranged__content {
