@@ -2591,7 +2591,7 @@ h3 {
     transform: none;
   }
 
-  .arranged {
+  .section.arranged {
     padding-bottom: 72px;
   }
 
@@ -2835,7 +2835,7 @@ h3 {
     left: 10px;
   }
 
-  .arranged {
+  .section.arranged {
     padding-bottom: 60px;
   }
 
