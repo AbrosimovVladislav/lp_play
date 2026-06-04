@@ -391,7 +391,7 @@ button {
 }
 
 .section__inner {
-  width: min(100% - (var(--page-pad) * 2), var(--container));
+  width: min(100% - (var(--page-pad) * 2), 1480px);
   margin: 0 auto;
 }
 
