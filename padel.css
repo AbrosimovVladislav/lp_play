@@ -565,17 +565,47 @@ button {
 
 @media (min-width: 881px) {
   .how .section-head {
-    margin-bottom: clamp(58px, 5.4vw, 92px);
+    position: relative;
+    align-items: start;
+    margin-bottom: clamp(78px, 7.8vw, 128px);
+  }
+
+  .how .section-head::before {
+    position: absolute;
+    top: clamp(28px, 2.8vw, 48px);
+    left: calc(50% - clamp(46px, 4vw, 68px));
+    width: 1px;
+    height: clamp(118px, 9vw, 160px);
+    background: linear-gradient(
+      180deg,
+      rgba(176, 138, 79, 0),
+      rgba(176, 138, 79, 0.9) 18%,
+      rgba(176, 138, 79, 0.9) 82%,
+      rgba(176, 138, 79, 0)
+    );
+    content: "";
+  }
+
+  .how .section-copy {
+    grid-column: 1 / span 5;
+  }
+
+  .how .section-head .section-lead {
+    grid-column: 7 / span 5;
+    max-width: 660px;
+    align-self: center;
+    font-size: clamp(22px, 1.7vw, 30px);
+    line-height: 1.48;
   }
 
   .steps {
-    --timeline-x: clamp(72px, 5.6vw, 108px);
+    --timeline-x: clamp(112px, 9.6vw, 150px);
     padding-left: 0;
   }
 
   .steps__line {
-    top: clamp(42px, 4vw, 66px);
-    bottom: clamp(42px, 4vw, 66px);
+    top: clamp(34px, 3vw, 52px);
+    bottom: clamp(34px, 3vw, 52px);
     left: var(--timeline-x);
     width: 2px;
     overflow: hidden;
@@ -595,13 +625,13 @@ button {
   .step {
     position: relative;
     grid-template-columns:
-      clamp(128px, 10vw, 180px)
-      minmax(280px, 0.82fr)
-      minmax(480px, 1.18fr);
-    gap: clamp(30px, 3.2vw, 58px);
-    min-height: clamp(286px, 22vw, 372px);
-    padding: clamp(46px, 4vw, 68px) 0;
-    border-top-color: rgba(244, 239, 230, 0.14);
+      clamp(148px, 12vw, 184px)
+      minmax(340px, 0.65fr)
+      minmax(640px, 1.35fr);
+    gap: clamp(32px, 3vw, 54px);
+    min-height: clamp(360px, 29vw, 492px);
+    padding: clamp(40px, 3.8vw, 66px) 0;
+    border-top-color: transparent;
   }
 
   .step::before {
@@ -609,12 +639,12 @@ button {
     top: 50%;
     left: var(--timeline-x);
     z-index: 1;
-    width: 15px;
-    height: 15px;
-    border: 2px solid rgba(176, 138, 79, 0.74);
+    width: 28px;
+    height: 28px;
+    border: 1px solid rgba(176, 138, 79, 0.9);
     border-radius: 999px;
-    background: var(--green);
-    box-shadow: 0 0 0 8px rgba(30, 58, 47, 0.9);
+    background: rgba(30, 58, 47, 0.96);
+    box-shadow: 0 0 0 16px rgba(30, 58, 47, 0.72);
     content: "";
     transform: translate(-50%, -50%);
     transition:
@@ -626,30 +656,38 @@ button {
   .step.is-active::before {
     background: var(--brass);
     box-shadow:
-      0 0 0 8px rgba(30, 58, 47, 0.92),
-      0 0 26px rgba(176, 138, 79, 0.44);
+      0 0 0 16px rgba(30, 58, 47, 0.76),
+      0 0 34px rgba(176, 138, 79, 0.42);
     transform: translate(-50%, -50%) scale(1.08);
   }
 
   .step__number {
     align-self: center;
-    font-size: clamp(42px, 3.3vw, 60px);
+    justify-self: start;
+    width: clamp(76px, 6.4vw, 104px);
+    color: rgba(176, 138, 79, 0.96);
+    font-size: clamp(48px, 3.8vw, 70px);
+    text-align: right;
   }
 
   .step__body {
     align-self: center;
-    max-width: 560px;
+    max-width: 520px;
   }
 
   .step__body p {
-    max-width: 520px;
-    font-size: clamp(18px, 1.28vw, 23px);
+    max-width: 480px;
+    margin-top: clamp(16px, 1.3vw, 22px);
+    font-size: clamp(21px, 1.55vw, 28px);
+    line-height: 1.5;
   }
 
   .step__photo {
     align-self: center;
-    aspect-ratio: 16 / 8.7;
-    box-shadow: 0 24px 54px rgba(6, 14, 10, 0.28);
+    aspect-ratio: 16 / 8.4;
+    border: 1px solid rgba(176, 138, 79, 0.42);
+    border-radius: 16px;
+    box-shadow: 0 28px 64px rgba(6, 14, 10, 0.3);
   }
 
   .step__photo img {
