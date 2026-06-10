@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="padel.css?v=20260610-final-form2" />
+    <link rel="stylesheet" href="padel.css?v=20260610-signup1" />
   </head>
   <body>
     <header class="topbar" aria-label="PlayUp">
@@ -385,7 +385,13 @@
                 autocomplete="off"
                 placeholder="@username"
               />
-              <button class="button" type="button">Записаться на игру</button>
+              <button class="button" type="submit">Записаться на игру</button>
+              <p
+                class="signup-form__status"
+                role="status"
+                aria-live="polite"
+                hidden
+              ></p>
               <!-- <p class="signup-form__note">
                 Напишем, уточним уровень и предложим ближайший слот.
               </p> -->
@@ -399,6 +405,6 @@
       <p>PlayUp · Belgrade Padel</p>
     </footer>
 
-    <script src="padel.js?v=20260610-activities1"></script>
+    <script src="padel.js?v=20260610-signup1"></script>
   </body>
 </html>

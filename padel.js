@@ -315,3 +315,88 @@ if (rotateWord && !reducedMotion) {
 
   window.setTimeout(rotateTick, holdFull);
 }
+
+// Форма записи → Supabase (таблица signups, проект PlayUp)
+const signupForm = document.querySelector(".signup-form");
+
+if (signupForm) {
+  const SUPABASE_URL = "https://kebkzhztzlnomxzhtzwh.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_Rn2QUvh4_bkXNxhTCbXqDQ_bgos6Vp_";
+  const SPORT = "Падел";
+  const SOURCE = "signup";
+  const TELEGRAM_RE = /^@[A-Za-z0-9_]{5,32}$/;
+
+  const input = signupForm.querySelector("#telegram");
+  const submitButton = signupForm.querySelector("button");
+  const status = signupForm.querySelector(".signup-form__status");
+  const defaultLabel = submitButton.textContent;
+
+  function setStatus(message, kind) {
+    if (!status) return;
+    status.textContent = message || "";
+    status.hidden = !message;
+    status.classList.remove("is-error", "is-success");
+    if (kind) status.classList.add(`is-${kind}`);
+  }
+
+  // Приводим ввод к виду @username: срезаем ссылку t.me и лишние @
+  function normalizeTelegram(raw) {
+    let value = raw.trim();
+    value = value
+      .replace(/^https?:\/\//i, "")
+      .replace(/^(?:t|telegram)\.me\//i, "")
+      .replace(/^@+/, "");
+    return value ? `@${value}` : "";
+  }
+
+  signupForm.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const telegram = normalizeTelegram(input.value);
+
+    if (!TELEGRAM_RE.test(telegram)) {
+      setStatus(
+        "Введи Telegram в виде @username (5–32 символа: буквы, цифры, _).",
+        "error",
+      );
+      input.focus();
+      return;
+    }
+
+    input.value = telegram;
+    submitButton.disabled = true;
+    submitButton.textContent = "Отправляем…";
+    setStatus("");
+
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/signups`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+          Prefer: "return=minimal",
+        },
+        body: JSON.stringify({
+          telegram,
+          sport: SPORT,
+          source: SOURCE,
+          user_agent: navigator.userAgent.slice(0, 400),
+        }),
+      });
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      signupForm.reset();
+      submitButton.textContent = "Заявка отправлена";
+      setStatus("Готово! Скоро напишем тебе в Telegram.", "success");
+    } catch (error) {
+      submitButton.disabled = false;
+      submitButton.textContent = defaultLabel;
+      setStatus(
+        "Не получилось отправить. Попробуй ещё раз через минуту.",
+        "error",
+      );
+    }
+  });
+}
