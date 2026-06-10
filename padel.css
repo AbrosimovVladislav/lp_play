@@ -567,7 +567,7 @@ button {
   .how .section-head {
     position: relative;
     align-items: start;
-    margin-bottom: clamp(78px, 7.8vw, 128px);
+    margin-bottom: clamp(42px, 4.2vw, 64px);
   }
 
   .how .section-head::before {
@@ -604,8 +604,8 @@ button {
   }
 
   .steps__line {
-    top: clamp(34px, 3vw, 52px);
-    bottom: clamp(34px, 3vw, 52px);
+    top: clamp(18px, 2vw, 30px);
+    bottom: clamp(18px, 2vw, 30px);
     left: var(--timeline-x);
     width: 2px;
     overflow: hidden;
@@ -629,8 +629,8 @@ button {
       minmax(340px, 0.65fr)
       minmax(640px, 1.35fr);
     gap: clamp(32px, 3vw, 54px);
-    min-height: clamp(360px, 29vw, 492px);
-    padding: clamp(40px, 3.8vw, 66px) 0;
+    min-height: clamp(300px, 22vw, 390px);
+    padding: clamp(22px, 2.3vw, 34px) 0;
     border-top-color: transparent;
   }
 
