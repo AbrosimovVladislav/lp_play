@@ -5,228 +5,357 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="PlayUp Padel — закрытый падел-клуб в Белграде. Два слота в неделю в группе своего уровня и кафе после. Первая игра — €15."
+      content="PlayUp — место в Белграде, где спорт становится частью жизни: движение, люди и своё коммьюнити в городе."
     />
-    <title>PlayUp Padel — падел со своими, каждую неделю</title>
+    <title>PlayUp — падел-клуб в Белграде</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="padel.css" />
+    <link rel="stylesheet" href="general.css?v=20260607-restored" />
   </head>
   <body>
-    <header class="topbar" aria-label="PlayUp Padel">
-      <a class="brand" href="#top" aria-label="PlayUp, перейти к началу">
-        <span>PlayUp</span>
-      </a>
-      <span class="topbar__place">Padel Members Club · Belgrade</span>
+    <header class="topbar" aria-label="PlayUp">
+      <a class="brand" href="#top" aria-label="PlayUp, перейти к началу"
+        >PlayUp</a
+      >
+      <span class="topbar__place">Belgrade Padel Members Club</span>
     </header>
 
     <main id="top">
-      <!-- БЛОК 1 — HERO -->
-      <section class="hero section-dark" aria-labelledby="hero-title">
-        <div class="hero__media parallax-frame" data-parallax="0.08">
-          <img src="assets/images/hero.jpg" alt="Компания после падел-игры за столом кафе у стеклянного корта на закате" />
+      <section class="cover hero section-dark" aria-labelledby="hero-title">
+        <div class="cover__media parallax-frame" data-parallax="0.08">
+          <img
+            src="assets/images/hero.jpg"
+            alt="Компания после падела сидит за столом у корта на закате"
+          />
         </div>
-        <div class="hero__shade" aria-hidden="true"></div>
-        <div class="hero__content">
-          <p class="eyebrow reveal">Закрытый падел-клуб в Белграде</p>
-          <h1 id="hero-title" class="hero__title">
-            <span class="title-line">Падел со своими.</span>
-            <span class="title-line">Каждую неделю.</span>
-          </h1>
-          <p class="hero__lead reveal" data-delay="260">
-            Два слота в неделю в группе своего уровня — и кафе после, ради которого
-            половина и приходит.
-          </p>
-          <div class="hero__action reveal" data-delay="420">
-            <a class="button" href="#join">Прийти на первую игру — €15</a>
-            <p class="micro">Первая игра — €15.</p>
+        <div class="cover__shade" aria-hidden="true"></div>
+
+        <div class="container cover__grid">
+          <div class="cover__copy">
+            <p class="eyebrow reveal">Падел-клуб в Белграде</p>
+            <h1 id="hero-title" class="hero-title">
+              <span class="title-line">Играй в падел,</span>
+              <span class="title-line">находи своих</span>
+            </h1>
+            <p class="cover__lead reveal" data-delay="180">
+              Не ради медалей или формы в зеркале. Ради недели, в которой есть
+              движение, люди и повод выйти из дома.
+            </p>
+            <div class="cover__action reveal" data-delay="300">
+              <a class="button" href="#final">Прийти на первую игру</a>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- БЛОК 2 — ЧТО ЭТО НА САМОМ ДЕЛЕ -->
       <section class="section essence" aria-labelledby="essence-title">
-        <div class="container">
-          <div class="section-center">
+        <div class="container grid">
+          <div class="section-copy section-copy--wide">
             <p class="eyebrow eyebrow--brass reveal">ЧТО ЭТО И ПОЧЕМУ</p>
-            <h2 id="essence-title" class="section-title section-title--grand reveal" data-delay="80">
-              Переехал — а играть не с кем
+            <h2 id="essence-title" class="section-title reveal">
+              Падел в удовольствие
             </h2>
-            <p class="section-lead reveal" data-delay="160">
-              Снять корт легко. Сложно — собрать своих, ровных по уровню, и так каждую
-              неделю. PlayUp — это клуб: ты не ищешь игру, она уже есть.
+            <p class="section-lead reveal" data-delay="120">
+              Мы собираем игры и встречи так, чтобы можно было прийти одному — и
+              постепенно стать своим.
+            </p>
+            <div class="copy-cta reveal" data-delay="220">
+              <a class="button" href="#final">Записаться на игру</a>
+            </div>
+          </div>
+
+          <figure
+            class="essay-photo reveal parallax-frame"
+            data-parallax="0.05"
+          >
+            <img
+              src="assets/images/tension.jpg"
+              alt="Игрок завязывает кроссовок перед первой игрой"
+            />
+          </figure>
+
+          <div class="feature-row" aria-label="Главные принципы PlayUp">
+            <article class="feature reveal" data-delay="0">
+              <span class="feature__number">01</span>
+              <h3>Играешь с равными</h3>
+              <p>
+                Подбираем группу по уровню: без неловкости, случайных «звёзд» и
+                ощущения, что ты попал не туда.
+              </p>
+            </article>
+            <article class="feature reveal" data-delay="110">
+              <span class="feature__number">02</span>
+              <h3>Приходишь налегке</h3>
+              <p>
+                Площадка забронирована, состав собран, расписание понятно. Не
+                нужно собирать людей в чатах и уговаривать всех прийти.
+              </p>
+            </article>
+            <article class="feature reveal" data-delay="220">
+              <span class="feature__number">03</span>
+              <h3>Остаёшься ради людей</h3>
+              <p>
+                После игры можно пойти на кофе: пообщаться, познакомиться и
+                постепенно стать частью круга. Без обязаловки — если сегодня не
+                можешь, всё окей.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section how section-dark" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section-head grid">
+            <div class="section-copy">
+              <p class="eyebrow reveal">КАК ПОПАСТЬ</p>
+              <h2 id="how-title" class="section-title reveal">Путь в клуб</h2>
+              <div class="copy-cta reveal" data-delay="200">
+                <a class="button button--accent" href="#final"
+                  >Записаться на игру</a
+                >
+              </div>
+            </div>
+            <p class="section-lead section-lead--dark reveal" data-delay="120">
+              Начинаешь с одной игры: смотришь на уровень, людей и атмосферу.
+              Дальше остаёшься, если хочется вернуться.
             </p>
           </div>
 
-          <div class="feature-row" aria-label="Что делает PlayUp клубом">
-            <article class="feature reveal" data-delay="0">
-              <div class="feature__icon" aria-hidden="true">
-                <span class="icon-mark icon-mark--level"></span>
-              </div>
-              <h3>Свой уровень</h3>
-              <p>Фильтр на входе. Никаких «слишком слабо» или «не угнаться» — в группе ровные.</p>
-            </article>
-            <article class="feature reveal" data-delay="120">
-              <div class="feature__icon" aria-hidden="true">
-                <span class="icon-mark icon-mark--calendar"></span>
-              </div>
-              <h3>Без головной боли</h3>
-              <p>Два слота в неделю. Записался один раз — дальше само, ничего не организуешь.</p>
-            </article>
-            <article class="feature reveal" data-delay="240">
-              <div class="feature__icon" aria-hidden="true">
-                <span class="icon-mark icon-mark--table"></span>
-              </div>
-              <h3>Кафе после</h3>
-              <p>Главное случается за столом. Тут ты находишь своих, а не просто разминаешься.</p>
-            </article>
-          </div>
-
-          <figure class="wide-photo reveal parallax-frame" data-parallax="0.06">
-            <img src="assets/images/solution.jpg" alt="Стол кафе после игры — разговор, смех, ракетки прислонены" />
-          </figure>
-        </div>
-      </section>
-
-      <!-- БЛОК 3А — КАК ПОПАСТЬ (Уровень 1 — механика) -->
-      <section class="section how" aria-labelledby="how-title">
-        <div class="container">
-          <div class="section-head">
-            <h2 id="how-title" class="section-title reveal">Как попасть</h2>
-          </div>
           <div class="steps" data-steps>
             <div class="steps__line" aria-hidden="true"><span></span></div>
             <article class="step reveal" data-step>
               <div class="step__number">01</div>
               <div class="step__body">
                 <h3>Оставляешь заявку</h3>
-                <p>Пара вопросов: свой уровень падела и удобное время.</p>
+                <p>Пара вопросов про опыт, график и комфортный темп игры.</p>
               </div>
               <figure class="step__photo">
-                <img src="assets/images/step-application.jpg" alt="Рука заполняет заявку на телефоне за столом кафе" />
+                <img
+                  src="assets/images/step-application.jpg"
+                  alt="Рука заполняет заявку на телефоне за столом кафе"
+                />
               </figure>
             </article>
             <article class="step reveal" data-step>
               <div class="step__number">02</div>
               <div class="step__body">
-                <h3>Приходишь на первую игру</h3>
-                <p>€15, как обычная разовая. Просто играешь и смотришь, свои ли.</p>
+                <h3>Приходишь на тестовую игру</h3>
+                <p>
+                  Никакого давления. Просто играешь, чтобы оценить динамику,
+                  баланс команд и понять, хочется ли тебе прийти снова.
+                </p>
               </div>
               <figure class="step__photo">
-                <img src="assets/images/step-arrival.jpg" alt="Человек открывает калитку падел-корта на закате" />
+                <img
+                  src="assets/images/step-arrival.jpg"
+                  alt="Человек открывает калитку падел-корта на закате"
+                />
               </figure>
             </article>
             <article class="step reveal" data-step>
               <div class="step__number">03</div>
               <div class="step__body">
-                <h3>Попадаешь к своим</h3>
-                <p>Ставим тебя в группу своего уровня — не в случайный сбор.</p>
+                <h3>Идёшь в кафе</h3>
+                <p>
+                  После игры все идут за стол — без этого никуда. Именно тут
+                  начинается знакомство: разговоры, смех и первые свои.
+                </p>
               </div>
               <figure class="step__photo">
-                <img src="assets/images/step-group.jpg" alt="Группа игроков приветствует нового участника перед падел-игрой" />
+                <img
+                  src="assets/images/step-group.jpg"
+                  alt="Группа игроков приветствует нового участника перед игрой"
+                />
               </figure>
             </article>
             <article class="step reveal" data-step>
               <div class="step__number">04</div>
               <div class="step__body">
-                <h3>Остаёшься на подписке</h3>
-                <p>Понравилось — берёшь два слота в неделю. Решаешь уже после игры.</p>
+                <h3>Становишься частью клуба</h3>
+                <p>
+                  Падел превращается в отличную привычку: регулярные игры в
+                  комфортном темпе и свои люди вокруг. После игры идём в кафе —
+                  это постоянный ритуал клуба для общения и новых знакомств.
+                </p>
               </div>
               <figure class="step__photo">
-                <img src="assets/images/step-stay.jpg" alt="Участники остаются за столом кафе после первой игры" />
+                <img
+                  src="assets/images/step-stay.jpg"
+                  alt="Участники клуба сидят за столом кафе после игры"
+                />
               </figure>
             </article>
           </div>
-          <p class="how__note reveal">
-            Разовая — €15. На подписке выходит дешевле уже со второй недели.
-          </p>
         </div>
       </section>
 
-      <!-- БЛОК 3Б — ЖИЗНЬ КЛУБА (Уровень 2 — атмосфера, без CTA и без цен) -->
       <section class="section club-life" aria-labelledby="life-title">
         <div class="container">
-          <div class="section-head section-head--wide">
-            <div>
-              <p class="eyebrow eyebrow--brass reveal">А ЕЩЁ ТУТ ВОТ ТАК</p>
-              <h2 id="life-title" class="section-title reveal">Падел — это только начало недели</h2>
-            </div>
-            <p class="section-text reveal" data-delay="120">
-              Воскресные пробежки на набережной, тусовки, дни рождения, вылазки. Ничего
-              обязательного — появляется в чате, идёшь, если хочешь.
+          <div class="life-note reveal">
+            <h2 id="life-title">Врывайся, когда есть настроение</h2>
+            <p>
+              В клубе нет правил по посещаемости. Видишь классный анонс в чате,
+              чувствуешь, что хочешь принять участие или просто потусить со
+              своими — бронируй слот. Всё максимально легко.
             </p>
           </div>
 
           <div class="masonry" aria-label="Жизнь клуба">
-            <figure class="masonry__item masonry__item--wide reveal parallax-frame" data-parallax="0.04">
-              <img src="assets/images/club-run.jpg" alt="Участники бегут вдоль реки на рассвете" />
-            </figure>
-            <figure class="masonry__item masonry__item--tall reveal parallax-frame" data-parallax="0.08">
-              <img src="assets/images/club-table.jpg" alt="Компания смеётся за длинным столом после игры" />
-            </figure>
-            <figure class="masonry__item reveal parallax-frame" data-parallax="0.05">
-              <img src="assets/images/club-recovery.jpg" alt="Участники спокойно общаются с бокалом после спорта" />
-            </figure>
-            <figure class="masonry__item masonry__item--tall reveal parallax-frame" data-parallax="0.07">
-              <img src="assets/images/club-birthday.jpg" alt="Друзья отмечают день рождения за столом клуба" />
-            </figure>
-            <figure class="masonry__item masonry__item--wide reveal parallax-frame" data-parallax="0.04">
-              <img src="assets/images/club-outing.jpg" alt="Участники клуба гуляют вместе у реки" />
-            </figure>
-            <figure class="masonry__item reveal parallax-frame" data-parallax="0.06">
-              <img src="assets/images/club-coffee.jpg" alt="Двое участников смеются за кофе после пробежки" />
-            </figure>
+            <button
+              class="masonry__item masonry__item--run reveal parallax-frame"
+              type="button"
+              aria-haspopup="dialog"
+              data-activity="run"
+              data-parallax="0.04"
+            >
+              <img
+                src="assets/images/club-run.jpg"
+                alt="Участники клуба бегут вдоль реки утром"
+              />
+              <span class="masonry__caption">
+                <span>Воскресный бег по набережной</span>
+              </span>
+            </button>
+            <button
+              class="masonry__item masonry__item--saturday reveal parallax-frame"
+              type="button"
+              aria-haspopup="dialog"
+              data-activity="saturday"
+              data-parallax="0.08"
+            >
+              <img
+                src="assets/images/club-saturday-v2.png"
+                alt="Дневная субботняя тусовка клуба в кофейне с DJ, танцами, кофе и лимонадами"
+              />
+              <span class="masonry__caption">
+                <span>Тусовки в субботу</span>
+                <small>DJ, танцы, кофе, лимонады</small>
+              </span>
+            </button>
+            <button
+              class="masonry__item masonry__item--stretch reveal parallax-frame"
+              type="button"
+              aria-haspopup="dialog"
+              data-activity="stretch"
+              data-parallax="0.05"
+            >
+              <img
+                src="assets/images/club-stretch-park.png"
+                alt="Участники клуба делают растяжку в парке после спорта"
+              />
+              <span class="masonry__caption">
+                <span>Растяжка в парке</span>
+              </span>
+            </button>
+            <button
+              class="masonry__item masonry__item--recovery reveal parallax-frame"
+              type="button"
+              aria-haspopup="dialog"
+              data-activity="recovery"
+              data-parallax="0.06"
+            >
+              <img
+                src="assets/images/club-recovery-spa.png"
+                alt="Спортивные участники клуба отдыхают в джакузи и хаммаме после нагрузки"
+              />
+              <span class="masonry__caption">
+                <span>Рекавери</span>
+              </span>
+            </button>
           </div>
         </div>
       </section>
 
-      <!-- БЛОК 4 — ФИНАЛ (цена + микро-FAQ + CTA) -->
-      <section class="final section-dark" id="join" aria-labelledby="final-title">
-        <div class="final__media parallax-frame" data-parallax="0.07">
-          <img src="assets/images/final-cta.jpg" alt="Группа после падел-игры у стеклянного корта на закате, ракетки, смех" />
-        </div>
-        <div class="final__shade" aria-hidden="true"></div>
-        <div class="final__content">
-          <h2 id="final-title" class="final__title reveal">
-            <span class="t-line">Первая игра — €15.</span>
-            <span class="t-line">Дальше решаешь ты.</span>
-          </h2>
+      <div class="activity-modal" data-activity-modal hidden>
+        <button
+          class="activity-modal__backdrop"
+          type="button"
+          data-activity-close
+          aria-label="Закрыть"
+        ></button>
+        <section
+          class="activity-modal__panel"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="activity-modal-title"
+          aria-describedby="activity-modal-text"
+        >
+          <button
+            class="activity-modal__close"
+            type="button"
+            data-activity-close
+            aria-label="Закрыть"
+          >
+            <span aria-hidden="true"></span>
+          </button>
+          <figure class="activity-modal__media">
+            <img data-activity-image src="assets/images/club-run.jpg" alt="" />
+          </figure>
+          <div class="activity-modal__content">
+            <p class="activity-modal__eyebrow" data-activity-kicker></p>
+            <h2 id="activity-modal-title" data-activity-title></h2>
+            <p class="activity-modal__lead" data-activity-lead></p>
+            <div
+              id="activity-modal-text"
+              class="activity-modal__text"
+              data-activity-text
+            ></div>
+            <dl class="activity-modal__facts" data-activity-facts></dl>
+          </div>
+        </section>
+      </div>
 
-          <div class="qa" aria-label="Что важно знать перед первой игрой">
-            <div class="qa__item reveal" data-delay="0">
-              <p class="qa__q">А если не подойдёт уровень?</p>
-              <p class="qa__a">
-                Перед игрой уточняем твой уровень и ставим в подходящую группу. Не зашло — переставим.
-              </p>
-            </div>
-            <div class="qa__item reveal" data-delay="120">
-              <p class="qa__q">Нужна своя ракетка?</p>
-              <p class="qa__a">Нет, на первую игру приходи как есть — всё дадим.</p>
-            </div>
-            <div class="qa__item reveal" data-delay="240">
-              <p class="qa__q">А если пропущу потом?</p>
-              <p class="qa__a">
-                Слот гибкий, вины нет. Это клуб, а не абонемент с горящими занятиями.
-              </p>
-            </div>
+      <section
+        class="cover final-cta section-dark"
+        id="final"
+        aria-labelledby="final-title"
+      >
+        <div class="cover__media parallax-frame" data-parallax="0.07">
+          <img
+            src="assets/images/final-cta.jpg"
+            alt="Группа после игры идёт вместе к кафе на закате"
+          />
+        </div>
+        <div class="cover__shade cover__shade--final" aria-hidden="true"></div>
+
+        <div class="container final-grid">
+          <div class="final-copy">
+            <p class="eyebrow reveal">ПЕРВАЯ ИГРА — €15</p>
+            <h2 id="final-title" class="final-title reveal">
+              Приходи один.<br />
+              Уходи знакомым
+            </h2>
+            <p class="cover__lead reveal" data-delay="120">
+              PlayUp — это место, где спорт становится поводом выйти из дома и
+              постепенно найти свой круг в городе.
+            </p>
           </div>
 
-          <div class="final__action reveal" data-delay="160">
-            <a class="button" href="#join">Прийти на первую игру — €15</a>
-            <p class="micro micro--light">Можно прийти одному и остаться, если откликается.</p>
+          <div class="price-panel reveal" data-delay="220" aria-label="Цена">
+            <div>
+              <span class="price-panel__label">Разовая первая игра</span>
+              <strong>€15</strong>
+            </div>
+            <div>
+              <span class="price-panel__label">Членство после</span>
+              <strong>€100/мес</strong>
+            </div>
+            <p>Два падел-слота в неделю в группе твоего уровня.</p>
+            <a class="button" href="#final">Прийти на первую игру</a>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="footer">
-      <p>PlayUp Padel · Belgrade</p>
+      <p>PlayUp · Belgrade Padel</p>
     </footer>
 
-    <script src="padel.js"></script>
+    <script src="general.js?v=20260607-restored"></script>
   </body>
 </html>
