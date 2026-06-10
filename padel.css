@@ -854,6 +854,91 @@ button {
   }
 }
 
+@media (min-width: 881px) {
+  .club-life {
+    padding: clamp(74px, 6vw, 112px) 0 clamp(84px, 6.6vw, 124px);
+  }
+
+  .life-note {
+    position: relative;
+    align-items: center;
+    gap: 0;
+    margin-bottom: clamp(34px, 3vw, 52px);
+    padding: clamp(42px, 4vw, 68px) 0 clamp(40px, 3.4vw, 56px);
+    border-top-color: rgba(176, 138, 79, 0.42);
+    border-bottom-color: rgba(176, 138, 79, 0.34);
+  }
+
+  .life-note::before {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    width: 34px;
+    height: 24px;
+    background: var(--green);
+    content: "";
+    mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 34 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 22c-4-7-3-14 1-20 4 6 5 13 1 20h-2Z'/%3E%3Cpath d='M13 21C6 20 2 15 1 8c7 1 12 5 13 12l-1 1Z'/%3E%3Cpath d='M21 21c7-1 11-6 12-13-7 1-12 5-13 12l1 1Z'/%3E%3C/svg%3E") center / contain no-repeat;
+    transform: translateX(-50%);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 34 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 22c-4-7-3-14 1-20 4 6 5 13 1 20h-2Z'/%3E%3Cpath d='M13 21C6 20 2 15 1 8c7 1 12 5 13 12l-1 1Z'/%3E%3Cpath d='M21 21c7-1 11-6 12-13-7 1-12 5-13 12l1 1Z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  .life-note::after {
+    position: absolute;
+    top: 50%;
+    left: calc(50% + clamp(8px, 1.4vw, 28px));
+    width: 1px;
+    height: clamp(84px, 6.6vw, 120px);
+    background: rgba(176, 138, 79, 0.34);
+    content: "";
+    transform: translateY(-50%);
+  }
+
+  .life-note h2 {
+    grid-column: 1 / span 6;
+    max-width: 760px;
+    font-size: clamp(76px, 5.9vw, 112px);
+    line-height: 0.92;
+  }
+
+  .life-note p {
+    grid-column: 8 / span 4;
+    align-self: center;
+    max-width: 520px;
+    font-size: clamp(24px, 1.7vw, 32px);
+    line-height: 1.36;
+  }
+
+  .masonry {
+    gap: clamp(22px, 1.8vw, 32px);
+  }
+
+  .masonry__item {
+    height: clamp(430px, 29vw, 560px);
+    border-radius: 8px;
+    box-shadow: 0 20px 46px rgba(30, 58, 47, 0.12);
+  }
+
+  .masonry__caption {
+    left: clamp(28px, 2.2vw, 42px);
+    right: clamp(24px, 2vw, 36px);
+    bottom: clamp(28px, 2.3vw, 44px);
+  }
+
+  .masonry__caption > span {
+    max-width: 88%;
+    font-size: clamp(34px, 2.3vw, 50px);
+    line-height: 0.96;
+  }
+
+  .masonry__caption::after {
+    margin-top: clamp(20px, 1.7vw, 30px);
+    padding: 10px 22px;
+    min-height: 42px;
+    font-size: 14px;
+    letter-spacing: 0;
+  }
+}
+
 body.is-modal-open {
   overflow: hidden;
 }
