@@ -278,7 +278,7 @@ if (activityModal && activityList) {
 const rotateWord = document.querySelector("[data-rotate]");
 
 if (rotateWord && !reducedMotion) {
-  const words = ["своих", "друзей", "свою команду", "коммьюнити", "свой круг", "компанию"];
+  const words = ["своих", "друзей", "компанию", "партнеров"];
   const typeSpeed = 80;
   const deleteSpeed = 45;
   const holdFull = 1500;
