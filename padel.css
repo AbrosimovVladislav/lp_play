@@ -462,13 +462,9 @@ button {
 }
 
 .feature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   min-height: clamp(210px, 15vw, 238px);
   padding: clamp(26px, 2.5vw, 36px);
   border-left: 1px solid var(--line);
-  text-align: center;
 }
 
 .feature:first-child {
@@ -487,7 +483,7 @@ button {
 
 .feature p {
   max-width: 380px;
-  margin: 16px auto 0;
+  margin: 16px 0 0;
   color: var(--muted);
 }
 
@@ -1275,6 +1271,7 @@ body.is-modal-open {
 
   /* Блок «Что это и почему» — центрируем текст, кнопку и фичи */
   .essence .section-copy--wide {
+    grid-column: 1 / -1;
     text-align: center;
   }
 
@@ -1288,9 +1285,13 @@ body.is-modal-open {
   }
 
   .essence .feature-row {
-    width: 100%;
-    max-width: 440px;
-    margin-inline: auto;
+    grid-column: 1 / -1;
+    justify-self: center;
+    justify-items: center;
+    width: min(100%, 440px);
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
   }
 
@@ -1299,17 +1300,27 @@ body.is-modal-open {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
+    padding-right: clamp(16px, 6vw, 28px);
+    padding-left: clamp(16px, 6vw, 28px);
     text-align: center;
   }
 
   .essence .feature__number,
   .essence .feature h3 {
     width: 100%;
+    margin-right: auto;
+    margin-left: auto;
     text-align: center;
   }
 
+  .essence .feature h3 {
+    max-width: 11ch;
+    text-wrap: balance;
+  }
+
   .essence .feature p {
-    max-width: 440px;
+    max-width: 28ch;
     margin-inline: auto;
     text-align: center;
   }
