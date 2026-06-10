@@ -560,6 +560,108 @@ button {
   aspect-ratio: 16 / 8.8;
   margin: 0;
   border-radius: 6px;
+  overflow: hidden;
+}
+
+@media (min-width: 881px) {
+  .how .section-head {
+    margin-bottom: clamp(58px, 5.4vw, 92px);
+  }
+
+  .steps {
+    --timeline-x: clamp(72px, 5.6vw, 108px);
+    padding-left: 0;
+  }
+
+  .steps__line {
+    top: clamp(42px, 4vw, 66px);
+    bottom: clamp(42px, 4vw, 66px);
+    left: var(--timeline-x);
+    width: 2px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: rgba(244, 239, 230, 0.16);
+  }
+
+  .steps__line span {
+    background: linear-gradient(
+      180deg,
+      rgba(176, 138, 79, 0.95),
+      rgba(233, 139, 88, 0.88)
+    );
+    box-shadow: 0 0 22px rgba(176, 138, 79, 0.34);
+  }
+
+  .step {
+    position: relative;
+    grid-template-columns:
+      clamp(128px, 10vw, 180px)
+      minmax(280px, 0.82fr)
+      minmax(480px, 1.18fr);
+    gap: clamp(30px, 3.2vw, 58px);
+    min-height: clamp(286px, 22vw, 372px);
+    padding: clamp(46px, 4vw, 68px) 0;
+    border-top-color: rgba(244, 239, 230, 0.14);
+  }
+
+  .step::before {
+    position: absolute;
+    top: 50%;
+    left: var(--timeline-x);
+    z-index: 1;
+    width: 15px;
+    height: 15px;
+    border: 2px solid rgba(176, 138, 79, 0.74);
+    border-radius: 999px;
+    background: var(--green);
+    box-shadow: 0 0 0 8px rgba(30, 58, 47, 0.9);
+    content: "";
+    transform: translate(-50%, -50%);
+    transition:
+      background 260ms ease,
+      box-shadow 260ms ease,
+      transform 260ms ease;
+  }
+
+  .step.is-active::before {
+    background: var(--brass);
+    box-shadow:
+      0 0 0 8px rgba(30, 58, 47, 0.92),
+      0 0 26px rgba(176, 138, 79, 0.44);
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+
+  .step__number {
+    align-self: center;
+    font-size: clamp(42px, 3.3vw, 60px);
+  }
+
+  .step__body {
+    align-self: center;
+    max-width: 560px;
+  }
+
+  .step__body p {
+    max-width: 520px;
+    font-size: clamp(18px, 1.28vw, 23px);
+  }
+
+  .step__photo {
+    align-self: center;
+    aspect-ratio: 16 / 8.7;
+    box-shadow: 0 24px 54px rgba(6, 14, 10, 0.28);
+  }
+
+  .step__photo img {
+    filter: saturate(1.04) contrast(1.03);
+    transition:
+      transform 620ms ease,
+      filter 620ms ease;
+  }
+
+  .step.is-active .step__photo img {
+    transform: scale(1.025);
+  }
 }
 
 .club-life {
