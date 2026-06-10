@@ -462,9 +462,13 @@ button {
 }
 
 .feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   min-height: clamp(210px, 15vw, 238px);
   padding: clamp(26px, 2.5vw, 36px);
   border-left: 1px solid var(--line);
+  text-align: center;
 }
 
 .feature:first-child {
@@ -483,7 +487,7 @@ button {
 
 .feature p {
   max-width: 380px;
-  margin: 16px 0 0;
+  margin: 16px auto 0;
   color: var(--muted);
 }
 
