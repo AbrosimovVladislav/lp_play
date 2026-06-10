@@ -1232,3 +1232,54 @@ body.is-modal-open {
     display: none;
   }
 }
+
+/* === Мобильная доработка: hero и блок «Что это и почему» === */
+@media (max-width: 880px) {
+  /* Hero — центрируем весь блок */
+  .cover__grid {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-title {
+    margin-inline: auto;
+  }
+
+  .cover__lead {
+    margin-inline: auto;
+  }
+
+  .cover__action {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Печатающееся слово — на своей строке, чтобы рост длины
+     двигал его по горизонтали (от центра), а не прыгал по вертикали */
+  .hero-title .title-rotate {
+    display: block;
+    min-height: 1em;
+  }
+
+  /* Блок «Что это и почему» — центрируем текст, кнопку и фичи */
+  .essence .section-copy--wide {
+    text-align: center;
+  }
+
+  .essence .section-lead {
+    margin-inline: auto;
+  }
+
+  .essence .copy-cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .essence .feature {
+    text-align: center;
+  }
+
+  .essence .feature p {
+    margin-inline: auto;
+  }
+}
