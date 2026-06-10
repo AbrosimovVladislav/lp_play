@@ -989,6 +989,8 @@ body.is-modal-open {
 }
 
 .activity-modal__content {
+  min-height: 0;
+  max-height: min(820px, calc(100svh - 48px));
   overflow-y: auto;
   padding: clamp(30px, 3.2vw, 48px);
 }
@@ -1405,7 +1407,8 @@ body.is-modal-open {
 
   .activity-modal__panel {
     grid-template-columns: 1fr;
-    max-height: none;
+    max-height: calc(100svh - 28px);
+    overflow-y: auto;
   }
 
   .activity-modal__media {
@@ -1414,6 +1417,7 @@ body.is-modal-open {
   }
 
   .activity-modal__content {
+    max-height: none;
     padding: 28px 22px 30px;
   }
 
