@@ -1275,11 +1275,25 @@ body.is-modal-open {
     justify-content: center;
   }
 
+  .essence .feature-row {
+    text-align: center;
+  }
+
   .essence .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .essence .feature__number,
+  .essence .feature h3 {
     text-align: center;
   }
 
   .essence .feature p {
+    max-width: 440px;
     margin-inline: auto;
+    text-align: center;
   }
 }
