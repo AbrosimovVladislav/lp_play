@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="padel.css?v=20260610-activities3" />
+    <link rel="stylesheet" href="padel.css?v=20260610-final-form2" />
   </head>
   <body>
     <header class="topbar" aria-label="PlayUp">
@@ -339,8 +339,8 @@
           <div class="final-copy">
             <p class="eyebrow reveal">ПЕРВАЯ ИГРА — €15</p>
             <h2 id="final-title" class="final-title reveal">
-              Приходи один.<br />
-              Уходи знакомым
+              Приходи один - <br />
+              Компания найдется
             </h2>
             <p class="cover__lead reveal" data-delay="120">
               PlayUp — это место, где спорт становится поводом выйти из дома и
@@ -348,17 +348,49 @@
             </p>
           </div>
 
-          <div class="price-panel reveal" data-delay="220" aria-label="Цена">
-            <div>
+          <div
+            class="price-panel signup-panel reveal"
+            data-delay="220"
+            aria-label="Форма записи"
+          >
+            <div class="signup-panel__trial">
               <span class="price-panel__label">Разовая первая игра</span>
               <strong>€15</strong>
+              <p>Одна игра в группе твоего уровня, чтобы почувствовать формат.</p>
             </div>
-            <div>
-              <span class="price-panel__label">Членство после</span>
-              <strong>€100/мес</strong>
+
+            <div class="signup-panel__membership" aria-label="Community подписка">
+              <div>
+                <span class="price-panel__label">Community подписка</span>
+                <strong>€100/мес</strong>
+                <span class="signup-panel__badge">Скоро</span>
+              </div>
+              <p>
+                2 падел-слота в неделю с кафе после игры и доступом к жизни
+                коммьюнити.
+              </p>
+              <ul class="signup-panel__features">
+                <li>Воскресные пробежки и растяжка</li>
+                <li>Субботняя тусовка клуба</li>
+                <li>Нетворк и новые знакомства</li>
+              </ul>
             </div>
-            <p>Два падел-слота в неделю в группе твоего уровня.</p>
-            <a class="button" href="#final">Прийти на первую игру</a>
+
+            <form class="signup-form" aria-label="Оставить Telegram">
+              <label for="telegram">Оставить Telegram</label>
+              <input
+                id="telegram"
+                name="telegram"
+                type="text"
+                inputmode="text"
+                autocomplete="off"
+                placeholder="@username"
+              />
+              <button class="button" type="button">Записаться на игру</button>
+              <p class="signup-form__note">
+                Напишем, уточним уровень и предложим ближайший слот.
+              </p>
+            </form>
           </div>
         </div>
       </section>

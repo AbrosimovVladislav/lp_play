@@ -1173,6 +1173,130 @@ body.is-modal-open {
   line-height: 1.45;
 }
 
+.signup-panel {
+  display: grid;
+  gap: 22px;
+}
+
+.price-panel > .signup-panel__trial,
+.price-panel > .signup-panel__membership {
+  padding-bottom: 22px;
+  margin-bottom: 0;
+}
+
+.price-panel .signup-panel__trial p,
+.price-panel .signup-panel__membership p {
+  max-width: 420px;
+  margin: 16px 0 0;
+}
+
+.signup-panel__membership {
+  position: relative;
+  opacity: 0.58;
+}
+
+.signup-panel__membership strong {
+  font-size: clamp(38px, 3vw, 54px);
+}
+
+.signup-panel__badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 6px 11px;
+  margin-top: 12px;
+  border: 1px solid rgba(244, 239, 230, 0.22);
+  border-radius: 999px;
+  color: rgba(251, 245, 234, 0.7);
+  background: rgba(251, 245, 234, 0.06);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.signup-panel__features {
+  display: grid;
+  gap: 8px;
+  padding: 0;
+  margin: 16px 0 0;
+  color: rgba(251, 245, 234, 0.76);
+  font-size: 15px;
+  line-height: 1.35;
+  list-style: none;
+}
+
+.signup-panel__features li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.signup-panel__features li::before {
+  position: absolute;
+  top: 0.58em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--peach);
+  content: "";
+  opacity: 0.82;
+}
+
+.signup-form {
+  display: grid;
+  gap: 12px;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.signup-form label {
+  color: rgba(251, 245, 234, 0.74);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.signup-form input {
+  width: 100%;
+  min-height: 56px;
+  padding: 0 18px;
+  border: 1px solid rgba(244, 239, 230, 0.28);
+  border-radius: 999px;
+  color: #fbf5ea;
+  background: rgba(251, 245, 234, 0.08);
+  font: inherit;
+  font-size: 16px;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.signup-form input::placeholder {
+  color: rgba(251, 245, 234, 0.46);
+}
+
+.signup-form input:focus {
+  border-color: rgba(233, 139, 88, 0.72);
+  background: rgba(251, 245, 234, 0.12);
+  box-shadow: 0 0 0 4px rgba(233, 139, 88, 0.14);
+}
+
+.signup-form .button {
+  width: 100%;
+  max-width: none;
+}
+
+.price-panel .signup-form__note {
+  margin: 0;
+  color: rgba(251, 245, 234, 0.56);
+  font-size: 13px;
+  line-height: 1.38;
+}
+
 .footer {
   padding: 34px 24px;
   color: rgba(26, 26, 26, 0.58);
