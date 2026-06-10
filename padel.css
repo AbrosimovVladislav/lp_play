@@ -8,6 +8,7 @@
   --light-muted: rgba(251, 245, 234, 0.72);
   --brass: #b08a4f;
   --peach: #e98b58;
+  --clay: #c97a5d;
   --line: rgba(30, 58, 47, 0.18);
   --line-light: rgba(244, 239, 230, 0.18);
   --shadow: 0 22px 48px rgba(30, 58, 47, 0.14);
@@ -272,6 +273,17 @@ button {
   margin-top: clamp(28px, 2.6vw, 40px);
 }
 
+.button__arrow {
+  margin-left: 10px;
+  font-size: 1.1em;
+  line-height: 0;
+  transition: transform 220ms ease;
+}
+
+.button:hover .button__arrow {
+  transform: translateX(4px);
+}
+
 .micro {
   margin: 14px 0 0;
   color: rgba(26, 26, 26, 0.6);
@@ -382,6 +394,35 @@ button {
   }
 }
 
+/* Печатающееся слово в hero (найди своих → друзей → коммьюнити …) */
+.title-rotate {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.title-rotate__word {
+  color: var(--clay);
+}
+
+.title-rotate__caret {
+  display: inline-block;
+  width: 0.05em;
+  min-width: 2px;
+  height: 0.82em;
+  margin-left: 0.08em;
+  border-radius: 2px;
+  background: var(--clay);
+  transform: translateY(0.04em);
+  animation: caretBlink 1s steps(1, end) infinite;
+}
+
+@keyframes caretBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
 .essence {
   background: linear-gradient(180deg, var(--cream), var(--cream-2));
 }
@@ -396,14 +437,14 @@ button {
 }
 
 .essence .section-copy--wide {
-  grid-column: 1 / span 8;
+  grid-column: 1 / span 6;
 }
 
 .essay-photo {
-  grid-column: 10 / span 3;
+  grid-column: 8 / span 5;
   grid-row: 1 / span 2;
   align-self: start;
-  height: clamp(360px, 30vw, 430px);
+  height: clamp(440px, 36vw, 560px);
   min-height: 0;
   margin: 0;
   border-radius: 6px;
@@ -411,7 +452,7 @@ button {
 }
 
 .feature-row {
-  grid-column: 1 / span 9;
+  grid-column: 1 / span 12;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
@@ -965,12 +1006,12 @@ body.is-modal-open {
   }
 
   .essay-photo {
-    grid-column: 9 / span 4;
-    height: clamp(320px, 32vw, 390px);
+    grid-column: 8 / span 5;
+    height: clamp(380px, 34vw, 460px);
   }
 
   .feature-row {
-    grid-column: 1 / span 8;
+    grid-column: 1 / span 12;
   }
 
   .step {
@@ -1185,5 +1226,9 @@ body.is-modal-open {
   .title-line {
     opacity: 1;
     transform: none;
+  }
+
+  .title-rotate__caret {
+    display: none;
   }
 }

@@ -273,3 +273,45 @@ if (activityModal && activityList) {
     }
   });
 }
+
+// Печатающееся слово в hero: своих → друзей → свою команду → …
+const rotateWord = document.querySelector("[data-rotate]");
+
+if (rotateWord && !reducedMotion) {
+  const words = ["своих", "друзей", "свою команду", "коммьюнити", "свой круг", "компанию"];
+  const typeSpeed = 80;
+  const deleteSpeed = 45;
+  const holdFull = 1500;
+  const holdEmpty = 360;
+
+  let wordIndex = 0;
+  let charIndex = words[0].length;
+  let deleting = true;
+
+  function rotateTick() {
+    const current = words[wordIndex];
+
+    if (deleting) {
+      charIndex -= 1;
+      rotateWord.textContent = current.slice(0, charIndex);
+      if (charIndex <= 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        window.setTimeout(rotateTick, holdEmpty);
+        return;
+      }
+      window.setTimeout(rotateTick, deleteSpeed);
+    } else {
+      charIndex += 1;
+      rotateWord.textContent = current.slice(0, charIndex);
+      if (charIndex >= current.length) {
+        deleting = true;
+        window.setTimeout(rotateTick, holdFull);
+        return;
+      }
+      window.setTimeout(rotateTick, typeSpeed);
+    }
+  }
+
+  window.setTimeout(rotateTick, holdFull);
+}
