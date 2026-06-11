@@ -119,155 +119,129 @@ document.querySelectorAll("[data-accordion] .faq-item__button").forEach((button,
   });
 });
 
-const activityDetails = {
-  run: {
-    image: "assets/images/club-run.jpg",
-    alt: "Участники клуба бегут вдоль реки утром",
-    kicker: "Каждое воскресенье · 9:00",
-    title: "Воскресный бег по набережной",
-    lead: "Лёгкий разговорный темп для тех, кто хочет движения между футбольными играми.",
-    paragraphs: [
-      "Бежим налегке. Стартуем на набережной возле Калемегдана, делаем круг до Галерии и возвращаемся — всего около 5 км.",
-      "После идём в кафе. Там часто самое интересное: пробежка скорее повод собраться, спокойно поговорить и увидеть людей из разных футбольных групп.",
-      "Никто не меряется темпом и не ждёт личных рекордов. Если можешь поддерживать лёгкий бег и хочешь познакомиться с клубом — этого достаточно.",
-    ],
-    facts: [
-      ["Темп", "разговорный"],
-      ["Когда", "воскресенье, 9:00"],
-      ["Маршрут", "Калемегдан — Галерия"],
-      ["Дистанция", "около 5 км"],
-    ],
-  },
-  saturday: {
-    image: "assets/images/club-saturday-v2.png",
-    alt: "Субботняя вечеринка клуба с DJ, напитками и людьми из футбольных групп",
-    kicker: "Суббота · старт в 13:00",
-    title: "PlayUp Party",
-    lead: "Субботняя вечеринка для комьюнити. Идеальный формат, чтобы переключиться после рабочей недели: музыка, расслабленная атмосфера и люди, с которыми ты на одной волне.",
-    paragraphs: [
-      "Никакого официоза и жестких таймингов — заглядывай на час или оставайся до самого вечера. Футбол даёт первое знакомство, а здесь мы продолжаем отдыхать за пределами поля.",
-      "Можно смело приходить одному: вокруг уже будут знакомые лица из игр и чата, поэтому влиться в компанию будет максимально легко.",
-    ],
-    facts: [
-      ["Когда", "суббота, 13:00"],
-      ["Формат", "DJ, дринки, музыка"],
-      ["Вход", "по анонсу в чате"],
-    ],
-  },
-  stretch: {
-    image: "assets/images/club-stretch-park.png",
-    alt: "Участники клуба делают растяжку в парке после спорта",
-    kicker: "Парк · мягкий темп",
-    title: "Растяжка в парке",
-    lead: "Спокойная растяжка на траве, чтобы снять забитость мышц после матчей и просто разгрузить голову после рабочей недели.",
-    paragraphs: [
-      "Собираемся в парке, берём коврики и делаем простую мобильность: спина, ноги, плечи, дыхание. Это не урок на гибкость и не проверка формы.",
-      "Можно прийти после игры, после пробежки или просто потому что хочется чуть больше движения без поля. Всё идёт в комфортном темпе, без давления.",
-      "После часто остаёмся погулять или заходим на кофе. Как и везде в PlayUp, активность — скорее повод увидеть людей из клуба.",
-    ],
-    facts: [
-      ["Темп", "спокойный"],
-      ["Где", "парк по анонсу"],
-      ["Нужно", "коврик и вода"],
-      ["Для кого", "любой уровень"],
-    ],
-  },
-  recovery: {
-    image: "assets/images/club-recovery-spa.png",
-    alt: "Спортивные участники клуба отдыхают в джакузи и хаммаме после нагрузки",
-    kicker: "Recovery · после нагрузки",
-    title: "Рекавери",
-    lead: "Хаммам, джакузи и спокойный разговор вместо ещё одного тайма.",
-    paragraphs: [
-      "Иногда лучшая тренировка — это качественное восстановление. Собираемся в spa-формате: хаммам, джакузи, вода, расслабленный темп и никакой спешки.",
-      "Идеальный формат, если ты отыграл сложный матч, бегал кросс или просто хочешь выдохнуть после рабочей недели.",
-      "Формат появляется в чате отдельным анонсом. Нравится формат — бронируешь место, если нет — спокойно пропускаешь.",
-    ],
-    facts: [
-      ["Формат", "хаммам и джакузи"],
-      ["Темп", "медленно"],
-      ["Когда", "по анонсу"],
-      ["Настрой", "восстановиться"],
-    ],
-  },
-};
+// Печатающееся слово в hero: своих → друзей → компанию → партнеров
+const rotateWord = document.querySelector("[data-rotate]");
 
-const activityModal = document.querySelector("[data-activity-modal]");
-const activityList = document.querySelector(".masonry");
+if (rotateWord && !reducedMotion) {
+  const words = ["своих", "друзей", "компанию", "партнеров"];
+  const typeSpeed = 80;
+  const deleteSpeed = 45;
+  const holdFull = 1500;
+  const holdEmpty = 360;
 
-if (activityModal && activityList) {
-  const modalImage = activityModal.querySelector("[data-activity-image]");
-  const modalKicker = activityModal.querySelector("[data-activity-kicker]");
-  const modalTitle = activityModal.querySelector("[data-activity-title]");
-  const modalLead = activityModal.querySelector("[data-activity-lead]");
-  const modalText = activityModal.querySelector("[data-activity-text]");
-  const modalFacts = activityModal.querySelector("[data-activity-facts]");
-  const closeButtons = activityModal.querySelectorAll("[data-activity-close]");
-  const closeButton = activityModal.querySelector(".activity-modal__close");
-  let lastFocusedElement = null;
+  let wordIndex = 0;
+  let charIndex = words[0].length;
+  let deleting = true;
 
-  function fillActivityModal(activity) {
-    modalImage.src = activity.image;
-    modalImage.alt = activity.alt;
-    modalKicker.textContent = activity.kicker;
-    modalTitle.textContent = activity.title;
-    modalLead.textContent = activity.lead;
-    modalText.replaceChildren(
-      ...activity.paragraphs.map((paragraph) => {
-        const element = document.createElement("p");
-        element.textContent = paragraph;
-        return element;
-      }),
-    );
-    modalFacts.replaceChildren(
-      ...activity.facts.map(([term, description]) => {
-        const group = document.createElement("div");
-        const dt = document.createElement("dt");
-        const dd = document.createElement("dd");
-        dt.textContent = term;
-        dd.textContent = description;
-        group.append(dt, dd);
-        return group;
-      }),
-    );
-  }
+  function rotateTick() {
+    const current = words[wordIndex];
 
-  function openActivityModal(activityKey) {
-    const activity = activityDetails[activityKey];
-    if (!activity) return;
-
-    lastFocusedElement = document.activeElement;
-    fillActivityModal(activity);
-    activityModal.hidden = false;
-    document.body.classList.add("is-modal-open");
-    closeButton.focus({ preventScroll: true });
-  }
-
-  function closeActivityModal() {
-    if (activityModal.hidden) return;
-
-    activityModal.hidden = true;
-    document.body.classList.remove("is-modal-open");
-    if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
-      lastFocusedElement.focus({ preventScroll: true });
+    if (deleting) {
+      charIndex -= 1;
+      rotateWord.textContent = current.slice(0, charIndex);
+      if (charIndex <= 0) {
+        deleting = false;
+        wordIndex = (wordIndex + 1) % words.length;
+        window.setTimeout(rotateTick, holdEmpty);
+        return;
+      }
+      window.setTimeout(rotateTick, deleteSpeed);
+    } else {
+      charIndex += 1;
+      rotateWord.textContent = current.slice(0, charIndex);
+      if (charIndex >= current.length) {
+        deleting = true;
+        window.setTimeout(rotateTick, holdFull);
+        return;
+      }
+      window.setTimeout(rotateTick, typeSpeed);
     }
   }
 
-  document.addEventListener("click", (event) => {
-    const activityButton = event.target.closest("[data-activity]");
-    if (!activityButton || !activityList.contains(activityButton)) return;
+  window.setTimeout(rotateTick, holdFull);
+}
 
+// Форма записи → Supabase (таблица signups, проект PlayUp)
+const signupForm = document.querySelector(".signup-form");
+
+if (signupForm) {
+  const SUPABASE_URL = "https://kebkzhztzlnomxzhtzwh.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_Rn2QUvh4_bkXNxhTCbXqDQ_bgos6Vp_";
+  const SPORT = "Футбол";
+  const SOURCE = "signup";
+  const TELEGRAM_RE = /^@[A-Za-z0-9_]{5,32}$/;
+
+  const input = signupForm.querySelector("#telegram");
+  const submitButton = signupForm.querySelector("button");
+  const status = signupForm.querySelector(".signup-form__status");
+  const defaultLabel = submitButton.textContent;
+
+  function setStatus(message, kind) {
+    if (!status) return;
+    status.textContent = message || "";
+    status.hidden = !message;
+    status.classList.remove("is-error", "is-success");
+    if (kind) status.classList.add(`is-${kind}`);
+  }
+
+  // Приводим ввод к виду @username: срезаем ссылку t.me и лишние @
+  function normalizeTelegram(raw) {
+    let value = raw.trim();
+    value = value
+      .replace(/^https?:\/\//i, "")
+      .replace(/^(?:t|telegram)\.me\//i, "")
+      .replace(/^@+/, "");
+    return value ? `@${value}` : "";
+  }
+
+  signupForm.addEventListener("submit", async (event) => {
     event.preventDefault();
-    openActivityModal(activityButton.dataset.activity);
-  });
 
-  closeButtons.forEach((button) => {
-    button.addEventListener("click", closeActivityModal);
-  });
+    const telegram = normalizeTelegram(input.value);
 
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      closeActivityModal();
+    if (!TELEGRAM_RE.test(telegram)) {
+      setStatus(
+        "Введи Telegram в виде @username (5–32 символа: буквы, цифры, _).",
+        "error",
+      );
+      input.focus();
+      return;
+    }
+
+    input.value = telegram;
+    submitButton.disabled = true;
+    submitButton.textContent = "Отправляем…";
+    setStatus("");
+
+    try {
+      const response = await fetch(`${SUPABASE_URL}/rest/v1/signups`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_KEY,
+          Authorization: `Bearer ${SUPABASE_KEY}`,
+          Prefer: "return=minimal",
+        },
+        body: JSON.stringify({
+          telegram,
+          sport: SPORT,
+          source: SOURCE,
+          user_agent: navigator.userAgent.slice(0, 400),
+        }),
+      });
+
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+      signupForm.reset();
+      submitButton.textContent = "Заявка отправлена";
+      setStatus("Готово! Скоро напишем тебе в Telegram.", "success");
+    } catch (error) {
+      submitButton.disabled = false;
+      submitButton.textContent = defaultLabel;
+      setStatus(
+        "Не получилось отправить. Попробуй ещё раз через минуту.",
+        "error",
+      );
     }
   });
 }

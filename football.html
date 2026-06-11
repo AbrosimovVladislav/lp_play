@@ -14,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="football.css?v=20260607-football-groups" />
+    <link rel="stylesheet" href="football.css?v=20260611-parity" />
   </head>
   <body>
     <header class="topbar" aria-label="PlayUp">
@@ -34,7 +34,15 @@
             <p class="eyebrow reveal">Футбольное комьюнити в Белграде</p>
             <h1 id="hero-title" class="hero-title">
               <span class="title-line">Играй в футбол,</span>
-              <span class="title-line">находи своих</span>
+              <span class="title-line"
+                >находи
+                <span class="title-rotate"
+                  ><span class="title-rotate__word" data-rotate>своих</span
+                  ><span
+                    class="title-rotate__caret"
+                    aria-hidden="true"
+                  ></span></span
+              ></span>
             </h1>
             <p class="cover__lead reveal" data-delay="180">
               Хватит уговаривать друзей собраться. Бронируй слот в PlayUp и выходи
@@ -42,7 +50,6 @@
             </p>
             <div class="cover__action reveal" data-delay="300">
               <a class="button" href="#final">Прийти на первую игру</a>
-              <p class="micro">Первая игра — €15</p>
             </div>
           </div>
         </div>
@@ -60,6 +67,15 @@
               Мы балансируем составы так, чтобы игра была в кайф. Никаких случайных профи,
               жестких стыков и тех, кто готов убить за победу в любительском матче.
             </p>
+            <div class="copy-cta reveal" data-delay="220">
+              <a class="button" href="#final"
+                >Записаться на игру<span
+                  class="button__arrow"
+                  aria-hidden="true"
+                  >→</span
+                ></a
+              >
+            </div>
           </div>
 
           <figure class="essay-photo reveal parallax-frame" data-parallax="0.05">
@@ -101,10 +117,15 @@
             <div class="section-copy">
               <p class="eyebrow reveal">КАК ПОПАСТЬ</p>
               <h2 id="how-title" class="section-title reveal">Путь в клуб</h2>
+              <div class="copy-cta reveal" data-delay="200">
+                <a class="button button--accent" href="#final"
+                  >Записаться на игру</a
+                >
+              </div>
             </div>
             <p class="section-lead section-lead--dark reveal" data-delay="120">
-              Начинаешь с одной игры: смотришь на темп, людей и формат. Дальше остаёшься,
-              если хочется играть каждую неделю без организационной суеты.
+              Начинаешь с одной игры: смотришь на темп, людей и формат.
+              Дальше остаёшься, если хочется вернуться.
             </p>
           </div>
 
@@ -145,10 +166,9 @@
               <div class="step__body">
                 <h3>Становишься частью клуба</h3>
                 <p>
-                  Футбол превращается в отличную привычку: регулярные матчи
-                  в комфортном темпе и свои люди вокруг. После игры команда
-                  идёт на кофе — это постоянный ритуал клуба для общения
-                  и новых знакомств.
+                  Футбол становится приятной привычкой: регулярные матчи,
+                  комфортный темп и свои люди рядом. После — кафе, общение
+                  и новые знакомства.
                 </p>
               </div>
               <figure class="step__photo">
@@ -164,9 +184,8 @@
           <div class="life-note reveal">
             <h2 id="life-title">Врывайся, когда есть настроение</h2>
             <p>
-              Футбольная группа — основной ритм, но вокруг неё есть ещё жизнь клуба:
-              бег, растяжка, вечеринки и recovery. Видишь классный анонс —
-              забираешь слот.
+              Свободный выходной? <br />
+              Бронируй слот и отдыхай с нами
             </p>
           </div>
 
@@ -190,10 +209,9 @@
               data-activity="saturday"
               data-parallax="0.08"
             >
-              <img src="assets/images/club-saturday-v2.png" alt="Субботняя вечеринка клуба с DJ, напитками и людьми из футбольных групп" />
+              <img src="assets/images/club-saturday-v2.png" alt="Дневная субботняя тусовка клуба в кофейне с DJ, танцами, кофе и лимонадами" />
               <span class="masonry__caption">
-                <span>PlayUp Party</span>
-                <small>DJ, дринки и свои люди · старт в 13:00</small>
+                <span>Тусовки в субботу</span>
               </span>
             </button>
             <button
@@ -268,17 +286,49 @@
             </p>
           </div>
 
-          <div class="price-panel reveal" data-delay="220" aria-label="Цена">
-            <div>
-              <span class="price-panel__label">Разовая первая игра</span>
+          <div
+            class="price-panel signup-panel reveal"
+            data-delay="220"
+            aria-label="Форма записи"
+          >
+            <div class="signup-panel__trial">
+              <span class="price-panel__label">Разовая игра</span>
               <strong>€15</strong>
+              <p>Одна игра в составе твоего уровня, чтобы почувствовать формат.</p>
             </div>
-            <div>
-              <span class="price-panel__label">Регулярное участие</span>
-              <strong>€100/мес</strong>
+
+            <div class="signup-panel__membership" aria-label="Community подписка">
+              <div>
+                <span class="price-panel__label">Community подписка</span>
+                <strong>€100/мес</strong>
+                <span class="signup-panel__badge">Скоро</span>
+              </div>
+              <p>2 футбол-слота в неделю + кафе после игры</p>
+              <ul class="signup-panel__features">
+                <li>Воскресные пробежки и растяжка</li>
+                <li>Субботняя тусовка клуба</li>
+                <li>Нетворк и новые знакомства</li>
+              </ul>
             </div>
-            <p>Включает 8 игр в месяц (две игры в неделю) в группе твоего уровня.</p>
-            <a class="button" href="#final">Прийти на первую игру</a>
+
+            <form class="signup-form" aria-label="Оставить Telegram">
+              <label for="telegram">Оставить Telegram</label>
+              <input
+                id="telegram"
+                name="telegram"
+                type="text"
+                inputmode="text"
+                autocomplete="off"
+                placeholder="@username"
+              />
+              <button class="button" type="submit">Записаться на игру</button>
+              <p
+                class="signup-form__status"
+                role="status"
+                aria-live="polite"
+                hidden
+              ></p>
+            </form>
           </div>
         </div>
       </section>
@@ -288,6 +338,7 @@
       <p>PlayUp Football · Belgrade</p>
     </footer>
 
-    <script src="football.js?v=20260607-football-groups"></script>
+    <script src="club-life.js?v=20260611-clublife"></script>
+    <script src="football.js?v=20260611-parity"></script>
   </body>
 </html>

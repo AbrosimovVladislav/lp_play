@@ -349,6 +349,35 @@ button {
   }
 }
 
+/* Печатающееся слово в hero (находи своих → друзей → коммьюнити …) */
+.title-rotate {
+  display: inline-flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.title-rotate__word {
+  color: var(--brass);
+}
+
+.title-rotate__caret {
+  display: inline-block;
+  width: 0.05em;
+  min-width: 2px;
+  height: 0.82em;
+  margin-left: 0.08em;
+  border-radius: 2px;
+  background: var(--brass);
+  transform: translateY(0.04em);
+  animation: caretBlink 1s steps(1, end) infinite;
+}
+
+@keyframes caretBlink {
+  50% {
+    opacity: 0;
+  }
+}
+
 .essence {
   background: linear-gradient(180deg, var(--cream), var(--cream-2));
 }
@@ -363,14 +392,14 @@ button {
 }
 
 .essence .section-copy--wide {
-  grid-column: 1 / span 8;
+  grid-column: 1 / span 6;
 }
 
 .essay-photo {
-  grid-column: 10 / span 3;
+  grid-column: 8 / span 5;
   grid-row: 1 / span 2;
   align-self: start;
-  height: clamp(360px, 30vw, 430px);
+  height: clamp(320px, 26vw, 410px);
   min-height: 0;
   margin: 0;
   border-radius: 6px;
@@ -378,7 +407,7 @@ button {
 }
 
 .feature-row {
-  grid-column: 1 / span 9;
+  grid-column: 1 / span 12;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0;
@@ -798,6 +827,36 @@ body.is-modal-open {
   outline-offset: 4px;
 }
 
+/* Lime accent CTA — фирменный лаймовый акцент футбола */
+.button--accent,
+.section-dark .button--accent {
+  background: var(--brass);
+  border-color: transparent;
+  color: var(--green);
+  box-shadow: 0 16px 36px rgba(198, 217, 85, 0.3);
+}
+
+.button--accent:hover {
+  background: var(--brass);
+  filter: brightness(0.96);
+}
+
+/* CTA that lives inside a copy block, as a natural continuation of the text */
+.copy-cta {
+  margin-top: clamp(28px, 2.6vw, 40px);
+}
+
+.button__arrow {
+  margin-left: 10px;
+  font-size: 1.1em;
+  line-height: 0;
+  transition: transform 220ms ease;
+}
+
+.button:hover .button__arrow {
+  transform: translateX(4px);
+}
+
 .final-cta {
   min-height: 100svh;
 }
@@ -860,6 +919,152 @@ body.is-modal-open {
   color: var(--light-muted);
   font-size: 18px;
   line-height: 1.45;
+}
+
+.signup-panel {
+  display: grid;
+  gap: 18px;
+  padding: clamp(24px, 2.4vw, 34px);
+}
+
+.price-panel > .signup-panel__trial,
+.price-panel > .signup-panel__membership {
+  padding-bottom: 18px;
+  margin-bottom: 0;
+}
+
+.price-panel .signup-panel__trial p,
+.price-panel .signup-panel__membership p {
+  max-width: 420px;
+  margin: 16px 0 0;
+}
+
+.signup-panel__membership {
+  position: relative;
+  opacity: 0.58;
+}
+
+.signup-panel__membership strong {
+  font-size: clamp(34px, 2.7vw, 48px);
+}
+
+.signup-panel__badge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  padding: 6px 10px;
+  margin-top: 10px;
+  border: 1px solid rgba(244, 239, 230, 0.22);
+  border-radius: 999px;
+  color: rgba(251, 245, 234, 0.7);
+  background: rgba(251, 245, 234, 0.06);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.signup-panel__features {
+  display: grid;
+  gap: 6px;
+  padding: 0;
+  margin: 14px 0 0;
+  color: rgba(251, 245, 234, 0.76);
+  font-size: 15px;
+  line-height: 1.35;
+  list-style: none;
+}
+
+.signup-panel__features li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.signup-panel__features li::before {
+  position: absolute;
+  top: 0.58em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brass);
+  content: "";
+  opacity: 0.82;
+}
+
+.signup-form {
+  display: grid;
+  gap: 10px;
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.signup-form label {
+  color: rgba(251, 245, 234, 0.74);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.signup-form input {
+  width: 100%;
+  min-height: 56px;
+  padding: 0 18px;
+  border: 1px solid rgba(244, 239, 230, 0.28);
+  border-radius: 999px;
+  color: #fbf5ea;
+  background: rgba(251, 245, 234, 0.08);
+  font: inherit;
+  font-size: 16px;
+  outline: none;
+  transition:
+    border-color 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.signup-form input::placeholder {
+  color: rgba(251, 245, 234, 0.46);
+}
+
+.signup-form input:focus {
+  border-color: rgba(198, 217, 85, 0.72);
+  background: rgba(251, 245, 234, 0.12);
+  box-shadow: 0 0 0 4px rgba(198, 217, 85, 0.18);
+}
+
+.signup-form .button {
+  width: 100%;
+  max-width: none;
+}
+
+.price-panel .signup-form__note {
+  margin: 0;
+  color: rgba(251, 245, 234, 0.56);
+  font-size: 13px;
+  line-height: 1.34;
+}
+
+.signup-form__status {
+  margin: 2px 0 0;
+  font-size: 13px;
+  line-height: 1.34;
+}
+
+.signup-form__status.is-error {
+  color: #f0a98c;
+}
+
+.signup-form__status.is-success {
+  color: #bfe3c2;
+}
+
+.signup-form .button:disabled {
+  opacity: 0.62;
+  box-shadow: none;
+  transform: none;
+  cursor: default;
 }
 
 .footer {
@@ -1142,5 +1347,94 @@ body.is-modal-open {
   .title-line {
     opacity: 1;
     transform: none;
+  }
+
+  .title-rotate__caret {
+    display: none;
+  }
+}
+
+/* === Мобильная доработка: hero и блок «Что это и почему» === */
+@media (max-width: 880px) {
+  /* Hero — центрируем весь блок */
+  .cover__grid {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-title {
+    margin-inline: auto;
+  }
+
+  .cover__lead {
+    margin-inline: auto;
+  }
+
+  .cover__action {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Печатающееся слово — на своей строке, чтобы рост длины
+     двигал его по горизонтали (от центра), а не прыгал по вертикали */
+  .hero-title .title-rotate {
+    display: block;
+    min-height: 1em;
+  }
+
+  /* Блок «Что это и почему» — центрируем текст, кнопку и фичи */
+  .essence .section-copy--wide {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  .essence .section-lead {
+    margin-inline: auto;
+  }
+
+  .essence .copy-cta {
+    display: flex;
+    justify-content: center;
+  }
+
+  .essence .feature-row {
+    grid-column: 1 / -1;
+    justify-self: center;
+    justify-items: center;
+    width: min(100%, 440px);
+    max-width: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .essence .feature {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding-right: clamp(16px, 6vw, 28px);
+    padding-left: clamp(16px, 6vw, 28px);
+    text-align: center;
+  }
+
+  .essence .feature__number,
+  .essence .feature h3 {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+  }
+
+  .essence .feature h3 {
+    max-width: 11ch;
+    text-wrap: balance;
+  }
+
+  .essence .feature p {
+    max-width: 28ch;
+    margin-inline: auto;
+    text-align: center;
   }
 }
