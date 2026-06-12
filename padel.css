@@ -254,17 +254,17 @@ button {
   outline-offset: 4px;
 }
 
-/* Clay accent CTA — приглушённый персиковый вместо яркого оранжевого */
+/* Золотистый акцент CTA — в тон цифрам в блоках */
 .button--accent,
 .section-dark .button--accent {
-  background: var(--clay);
+  background: var(--brass);
   border-color: transparent;
   color: var(--green);
-  box-shadow: 0 16px 36px rgba(201, 122, 93, 0.28);
+  box-shadow: 0 16px 36px rgba(191, 157, 94, 0.28);
 }
 
 .button--accent:hover {
-  background: var(--clay);
+  background: var(--brass);
   filter: brightness(0.96);
 }
 
@@ -402,7 +402,7 @@ button {
 }
 
 .title-rotate__word {
-  color: var(--clay);
+  color: var(--brass);
 }
 
 .title-rotate__caret {
@@ -412,7 +412,7 @@ button {
   height: 0.82em;
   margin-left: 0.08em;
   border-radius: 2px;
-  background: var(--clay);
+  background: var(--brass);
   transform: translateY(0.04em);
   animation: caretBlink 1s steps(1, end) infinite;
 }
